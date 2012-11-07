@@ -63,6 +63,7 @@
 	wp_head();
 ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/kaotope.js" type="text/javascript"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/twitter.js" type="text/javascript"></script>
 </head>
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed">
@@ -72,17 +73,17 @@
 			<nav id="menu">	
 				<ul>
 					<li>
-						<a href="/category/projects" class="title" id="menu-projects">PROJECTS</a>
+						<a href="<?php echo get_site_url(); ?>/category/projects" class="title" id="menu-projects">PROJECTS</a>
 					</li>
 					<li>
 						<nav>
-							<a href="#" class="title">BLOG</a>
+							<a href="<?php echo get_site_url(); ?>/category/blog" class="title" id="menu-blog">BLOG</a>
 							<a class="smenu-link" href="#">BLOG 1</a>
 							<a class="smenu-link" href="#">BLOG 2</a>
 						</nav>
 					</li>
 					<li>
-						<a href="#" class="title">ABOUT</a>
+						<a href="<?php echo get_site_url(); ?>/about" class="title" id="menu-about">ABOUT</a>
 					</li>
 				</ul>
 			</nav>

@@ -617,6 +617,13 @@ function extra_user_profile_fields( $user ) { ?>
  
 <table class="form-table">
 <tr>
+<th><label for="bio"><?php _e("Biography"); ?></label></th>
+<td>
+<textarea name="bio" id="bio" value="<?php echo esc_attr( get_the_author_meta( 'bio', $user->ID ) ); ?>" class="regular-text"></textarea><br />
+<span class="description"><?php _e("Please enter your biography."); ?></span>
+</td>
+</tr>
+<tr>
 <th><label for="location"><?php _e("Location"); ?></label></th>
 <td>
 <input type="text" name="location" id="location" value="<?php echo esc_attr( get_the_author_meta( 'location', $user->ID ) ); ?>" class="regular-text" /><br />
@@ -661,11 +668,76 @@ add_action( 'edit_user_profile_update', 'save_extra_user_profile_fields' );
 function save_extra_user_profile_fields( $user_id ) {
  
 if ( !current_user_can( 'edit_user', $user_id ) ) { return false; }
- 
+update_user_meta( $user_id, 'bio', $_POST['bio'] );
 update_user_meta( $user_id, 'location', $_POST['location'] );
 update_user_meta( $user_id, 'brutew', $_POST['brutew'] );
 update_user_meta( $user_id, 'work', $_POST['work'] );
 update_user_meta( $user_id, 'url-image', $_POST['url-image'] );
 update_user_meta( $user_id, 'more-info', $_POST['more-info'] );
+}
+
+
+//AJAX ABOUT PEOPLE
+
+
+add_action( 'wp_head', 'add_ajaxurl_cdata_to_front', 1);
+
+function add_ajaxurl_cdata_to_front(){
+	?>
+	<script>
+		//<![CDATA[
+		ajaxurl = '<?php echo admin_url( 'admin-ajax.php'); ?>';
+		//]]>
+	</script>
+	<?php
+}
+
+add_action( 'wp_ajax_view_people', 'view_people' );
+add_action( 'wp_ajax_nopriv_view_people', 'view_people' );
+
+function view_people(){
+	$jsonpost = array();
+
+	$users = get_users();
+	foreach ($users as $usr) {
+		$jsonpost[$usr->ID]["bio"] = esc_attr( get_the_author_meta( 'bio', $usr->ID ));
+		$jsonpost[$usr->ID]["location"] = esc_attr( get_the_author_meta( 'location', $usr->ID ));
+		$jsonpost[$usr->ID]["brutew"] = esc_attr( get_the_author_meta( 'brutew', $usr->ID ));
+		$jsonpost[$usr->ID]["work"] = esc_attr( get_the_author_meta( 'work', $usr->ID ));
+		$jsonpost[$usr->ID][ "url_image"] = esc_attr( get_the_author_meta( 'url-image', $usr->ID ));
+		$jsonpost[$usr->ID]["more_info"] = esc_attr( get_the_author_meta( 'more-info', $usr->ID ));
+	}
+
+	if (!($_REQUEST['id'])) {
+		echo json_encode($jsonpost);
+	} else {
+		echo json_encode($jsonpost[$_REQUEST['id']]);
+	}
+	die();
+}
+
+// BLOG
+
+add_action( 'wp_ajax_get_ajax_posts', 'get_ajax_posts' );
+add_action( 'wp_ajax_nopriv_get_ajax_posts', 'get_ajax_posts' );
+
+function get_ajax_posts(){
+
+	if ($_REQUEST['year'] != '') {
+		function filter_where($where = '') {
+			(!$_REQUEST['month'])?$ajax_month = '01':$ajax_month = $_REQUEST['month'];
+			$where .= " AND post_date <= '".$_REQUEST['year']."-".$ajax_month."-01'";
+			return $where;
+		}
+		add_filter('posts_where', 'filter_where');
+	}
+
+	query_posts($query_string.'category_name=Blog&posts_per_page='.$_REQUEST['n_posts'].'&offset='.$_REQUEST['offset']);
+
+	if(have_posts()) : while ( have_posts() ) : the_post();
+		echo get_post_format();
+		$item = get_template_part( 'container-blogs', get_post_format() );
+	endwhile;endif;
+	die();
 }
 ?>

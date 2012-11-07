@@ -8,14 +8,25 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="element" data-filter="<?php the_field('tags'); ?>">
+<?php
+	$tags = get_the_tags();
+	$tag_name = "";
+
+	foreach ($tags as $tag) {
+		
+		($tag_name=="")?$tag_name = $tag->name:$tag_name .= ', '.$tag->name;
+	} 
+ ?>
+
+
+<article id="post-<?php the_ID(); ?>" class="element" data-filter="<?php echo $tag_name;?>">
 	<div class="box_title">
-		<div class="title_text"><?php the_field('large_title'); ?></div>
+		<div class="title_text"><?php echo get_the_title(); ?></div>
 		<div class="collapse_button">
 			<img src="http://3.brutelabs2.appspot.com/media/image/buttons/x.png">
 		</div>
 	</div>
-	<div id="banner_1" class="banner">
+	<div class="banner">
 		<div>
 			<div class="banner_text">
 				<span class="banner_prefix"></span>
@@ -27,12 +38,12 @@
 	<div class="elem-image">
 		<?  $small_image = get_field('small_image');
 		$large_image = get_field('large_image'); ?>
-		<img class="small-image" src="<?php echo $small_image['url']; ?>">
-		<img class="large-image" src="<?php echo $large_image['url']; ?>">
+		<div class="small-image" style="background-image:url('<?php echo $small_image['url']; ?>')"></div>
+		<div class="large-image" style="background-image:url('<?php echo $large_image['url']; ?>')"></div>
 	</div>
 	<div class="elem-descr">
-		<div class="elem-title"><?php the_field('small_title'); ?></div>
-		<div class="elem-content"><?php the_field('content'); ?></div>
+		<div class="elem-title"><?php echo get_the_title(); ?></div>
+		<div class="elem-content"><?php the_content(); //the_field('content'); ?></div>
 	</div>
 	<div class="action">
 		<div class="action-title"><?php the_field('action_title'); ?></div>
@@ -46,7 +57,7 @@
 		</div>
 		<div class="etags">
 			<div class="efoot-title">Tags:</div>
-			<div class="efoot-content"><?php the_field('tags'); ?></div>
+			<div class="efoot-content"><?php echo $tag_name;?></div>
 		</div>
 		<div class="more_button">
 			<a href="#">

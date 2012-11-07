@@ -230,6 +230,7 @@ nav#submenu .elem:hover {
 
 .elem-image .small-image {
 	display:block;
+	height: 197px;
 }
 
 .elem-image .small-image.large {
@@ -240,10 +241,16 @@ nav#submenu .elem:hover {
 	display: block;
 }
 
+.elem-image * {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .elem-title {
 	color: #000;
 	font-weight: bold;
 	font-size: 13px;
+	text-transform:uppercase;
 }
 
 .elem-descr {
@@ -469,11 +476,13 @@ a {
 	border: 1px solid #D8D8D8;
 	height: 382px;
 	padding: 0.5em;
-	width: 614px;
+	width: 616px;
 	position: absolute;
 }
 
 .featured_project_image{
+	background-repeat: no-repeat;
+	background-size: cover;
 	height: 20em;
 	width: 614px;
 }
@@ -523,7 +532,6 @@ a {
 	background: none repeat scroll 0 0 #FFFFFF;
 	height: 383px;
 	padding-bottom: 1em;
-	width: 319px;
 }
 
 #updates {
@@ -561,7 +569,7 @@ a {
 .right-col {
 	float: right;
 	margin-left: 0;
-	width: 20em;
+	width: 310px;
 }
 
 .update_entry {
@@ -659,6 +667,13 @@ li {
 
 .buy_button {
 	float: right;
+}
+
+.site_link {
+    border-top: 1px solid #D8D8D8;
+    font-size: 0.8em;
+    font-weight: lighter;
+    padding: 0.5em 1em;
 }
 
 @font-face {

@@ -101,16 +101,17 @@ $(document).ready(function(){
 	                                                                                
 	//Elements must be declared with fixed/absolute position
 	function fadeElements() {
-		
 		$fprj = $('.featured_project');
 		$clone = $fprj.clone();
 		$clone.css({'opacity':'0'});
-		
-		$clone.children('.featured_project_image').attr('src',$('article[data-id="'+arr[cnt]+'"] .elem-image .large-image',$container).attr('src'));
+		$('#banner .banner_text .banner_text_after_prefix').html($('article[data-id="'+arr[cnt]+'"] .banner .banner_text .banner_text_after_prefix',$container).html())
+
+		var url_img = $('article[data-id="'+arr[cnt]+'"] .elem-image .large-image',$container).css('background-image');
+		$clone.children('.featured_project_image').css({'background-image':url_img});
 		var ftitle = $('article[data-id="'+arr[cnt]+'"] .elem-title',$container).html();
 		var fcontent = $('article[data-id="'+arr[cnt]+'"] .elem-content',$container).html();
 		$clone.children('.featured_project_description').children('.feature_project_name').html(ftitle);
-		var tot = 290-ftitle.length;
+		var tot = 210-ftitle.length;
 		(fcontent.length > tot)?st = fcontent.substr(0,tot)+'...':st = fcontent.substr(0,tot);
 		$clone.children('.featured_project_description').children('.feature_project_text').html(st);
 	

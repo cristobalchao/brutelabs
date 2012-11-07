@@ -18,7 +18,7 @@ get_header(); ?>
 	<div class="left-col">
 		<ul>
 			<li class="featured_project">
-				<img class="featured_project_image" src="">
+				<div class="featured_project_image"> </div>
 				<div class="featured_project_description">
 					<span class="feature_project_name"></span>
 					<span class="feature_project_text"></span>
@@ -33,13 +33,14 @@ get_header(); ?>
 					<span>updates</span>
 				</div>
 				<div id="rss_feed">
-					<a href="http://twitter.com/statuses/user_timeline/21542173.rss" target="_blank">
+					<a href="http://api.twitter.com/1/statuses/user_timeline/brutelabs.rss" target="_blank">
 						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/rss.png">
 					</a>
 				</div>
 			</div>
 			<div id="updates_feeds">
-				<ul id="update_feeds_list"><ul><li><li class="update_entry"><div class="update_text">Which nations consume the most water? <a href="http://t.co/ZY2u59l6" target="_blank">http://t.co/ZY2u59l6</a></div><div class="update_time">about 8 hours ago</div></li></li><li><li class="update_entry"><div class="update_text">Poor penmanship on that envelope? No problem! <a href="http://t.co/Vw9NN3je" target="_blank">http://t.co/Vw9NN3je</a></div><div class="update_time">11:41 AM Sep 25th</div></li></li><li><li class="update_entry"><div class="update_text">Decorated Japanese manhole covers: <a href="http://t.co/D0JCu2Qa" target="_blank">http://t.co/D0JCu2Qa</a></div><div class="update_time">5:26 PM Sep 24th</div></li></li><li><li class="update_entry"><div class="update_text">The Rules of Flying: <a href="http://t.co/pnV6f8Vz" target="_blank">http://t.co/pnV6f8Vz</a></div><div class="update_time">11:37 AM Sep 24th</div></li></li><li><li class="update_entry"><div class="update_text">Millions of people still use dial-up? <a href="http://t.co/CBa7A0lq" target="_blank">http://t.co/CBa7A0lq</a></div><div class="update_time">11:41 AM Sep 21st</div></li></li></ul></ul>
+				<ul id="update_feeds_list">
+				</ul>
 			</div>
 		</div>
 	</div>
