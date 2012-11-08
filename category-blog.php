@@ -133,7 +133,17 @@ a:hover {
 <script>
 	$(document).ready(function(){
 
-		$('.archive_box ul li a[href="'+ window.location.href +'"]').addClass('active');
+		$('.blog_entry_categories a').live('click',function(){
+			alert('Coming very soon...');
+			return false;
+		});
+
+		$('.archive-month a.active').live('click', function() {
+			return false;
+		});
+
+
+		$('.archive-month a[href="'+ window.location.href +'"]').addClass('active');
 		$('.archive-year a[href*="'+ window.location.pathname.split('/')[1] +'"]').addClass('active');
 		$('#menu-blog').addClass('active');
 		
@@ -148,8 +158,6 @@ a:hover {
 			year = pathname.split("/")[1],
 			month = pathname.split("/")[2]
 		):null;
-
-		console.log(!!year);
 
 		$(document).scroll(function(){
 			if (!stp && $(document).scrollTop() > archive_top) {
@@ -309,7 +317,7 @@ a:hover {
 					<li class="archive-year"><a href="<?php bloginfo('url') ?>/<?php echo $month->year; ?>/?cat=5"><?php echo $month->year; ?></a></li>
 
 					<?php } ?>
-				<li><a href="<?php bloginfo('url') ?>/<?php echo $month->year; ?>/<?php echo date("m", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>/?cat=5"><span class="archive-month"><?php echo date("F", mktime(0, 0, 0, $month->month, 1, $month->year)); ?></span></a></li>
+				<li class="archive-month"><a href="<?php bloginfo('url') ?>/<?php echo $month->year; ?>/<?php echo date("m", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>/?cat=5"><span class="archive-month"><?php echo date("F", mktime(0, 0, 0, $month->month, 1, $month->year)); ?></span></a></li>
 				<?php $year_prev = $year_current;
 
 				endforeach; ?>

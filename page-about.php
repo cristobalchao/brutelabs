@@ -140,7 +140,7 @@ nav#submenu .sbmstitle.active:after {
 }
 
 .principle .content {
-	margin-left: 3em;
+	margin-left: 29px;
 	margin-top: 1em;
 	display: none;
 }
@@ -159,7 +159,6 @@ nav#submenu .sbmstitle.active:after {
 
 .info-people {
 	display:none;
-	margin-top:10px;
 	width: 100%;
 	font-family: helvetica,arial,sans-serif;
 	font-weight: lighter;

@@ -2,8 +2,8 @@ $(document).ready(function(){
 
 	$('#anim').css({'width':'633px'});
 
-	$('.featured_project, .more_button').live('click', function(){
-		alert('Project Spotlight : Coming very soon...');
+	$('.featured_project, .more_button, .buy_button a, .donate_button img').live('click', function(){
+		alert('Coming very soon...');
 		return false;
 	});
 
@@ -95,7 +95,7 @@ $(document).ready(function(){
 
 	//Custom function which use the fadeElements function to make the changes
 	function switchProjects(newElem) {
-		newElem.children('.featured_project_image').attr('src',$('article[data-id="'+arr[cnt]+'"] .large-image',$container).attr('src'));
+		newElem.children('.mark_project_image').children('.featured_project_image').attr('src',$('article[data-id="'+arr[cnt]+'"] .large-image',$container).attr('src'));
 		var ftitle = $('article[data-id="'+arr[cnt]+'"] .elem-title',$container).html();
 		var fcontent = $('article[data-id="'+arr[cnt]+'"] .elem-content',$container).html();
 		newElem.children('.featured_project_description').children('.feature_project_name').html(ftitle);
@@ -112,7 +112,7 @@ $(document).ready(function(){
 		$('#banner .banner_text .banner_text_after_prefix').html($('article[data-id="'+arr[cnt]+'"] .banner .banner_text .banner_text_after_prefix',$container).html())
 
 		var url_img = $('article[data-id="'+arr[cnt]+'"] .elem-image .large-image',$container).css('background-image');
-		$clone.children('.featured_project_image').css({'background-image':url_img});
+		$clone.children('.mark_project_image').children('.featured_project_image').css({'background-image':url_img});
 		var ftitle = $('article[data-id="'+arr[cnt]+'"] .elem-title',$container).html();
 		var fcontent = $('article[data-id="'+arr[cnt]+'"] .elem-content',$container).html();
 		$clone.children('.featured_project_description').children('.feature_project_name').html(ftitle);

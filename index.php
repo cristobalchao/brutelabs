@@ -18,7 +18,9 @@ get_header(); ?>
 	<div class="left-col">
 		<ul>
 			<li class="featured_project">
-				<div class="featured_project_image"> </div>
+				<div class="mark_project_image">
+					<div class="featured_project_image"> </div>
+				</div>
 				<div class="featured_project_description">
 					<span class="feature_project_name"></span>
 					<span class="feature_project_text"></span>
