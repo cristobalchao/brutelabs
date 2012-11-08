@@ -123,6 +123,15 @@ nav#submenu .sbmstitle.active:after {
 	font-size: 2em;
 	font-weight: lighter;
 	text-transform: uppercase;
+	opacity: .6;
+}
+
+.principle.active .title  {
+	opacity: 1;
+}
+
+.principle:hover .title {
+	opacity: 1;
 }
 
 .principle .title .number {
@@ -168,6 +177,18 @@ nav#submenu .sbmstitle.active:after {
 
 .bio_picture {
 	height:305px;
+}
+
+.bio_picture img {
+	display: none;
+}
+
+
+.bio_picture .bio_image {
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
 }
 
 .loading {
@@ -370,7 +391,8 @@ nav#submenu .sbmstitle.active:after {
 		</div>
 		<div class="bio_section">
 			<div class="bio_picture">
-				<img src="">
+				<div class="bio_image"></div>
+				<img src="" />
 				<span class="loading"></span>
 			</div>
 			<div class="bio_text">

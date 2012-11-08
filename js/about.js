@@ -51,8 +51,11 @@ $(document).ready(function(){
 		$clone_pers.css({'opacity':'0'});
 		$clone_banner.css({'opacity':'0'});
 
+		var $back_img = $('.bio_picture .bio_image', $clone_bio);
 		var $img = $('.bio_picture img', $clone_bio);
+
 		$img.attr('src',data.url_image);
+		$back_img.css({'background-image':'url("'+data.url_image+'")'});
 
 		$('.bio_text .content',$clone_bio).html(data.bio);
 		$('.subsection_box #bio_location span',$clone_pers).html(data.location);
@@ -90,7 +93,6 @@ $(document).ready(function(){
 			},
 			success:function(data){
 				obj = $.parseJSON(data);
-				console.log(data);
 				$('.link a').removeClass('active');
 				$('.link[id_people="'+ _id +'"] a').addClass('active');
 				setAndFadePersonalInfo(obj,name);

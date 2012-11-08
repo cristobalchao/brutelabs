@@ -25,7 +25,7 @@ if (basename( $_SERVER[REQUEST_URI]) == '/') {?>
 
 <div  id="container">
 <?php /* Start the Loop */ ?>
-<?php query_posts('category_name=Projects&showposts=12'); ?>
+<?php query_posts('category_name=Projects&showposts=15'); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 	<?php echo get_post_format(); ?>
 	<?php get_template_part( 'container-articles', get_post_format() ); ?>

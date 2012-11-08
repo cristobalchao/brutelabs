@@ -32,7 +32,7 @@ header {
 	margin-bottom: 1em;
 	margin-left: auto;
 	margin-right: auto;
-	width: 961px;
+	width: 955px;
 }
 
 #anim{
@@ -213,6 +213,10 @@ nav#submenu .elem:hover {
 	width: 620px;
 	height: 560px;
 	z-index: 100;
+}
+
+.elem-image:hover, .action:hover {
+	cursor: pointer;
 }
 
 .elem-image img{
@@ -478,6 +482,7 @@ a {
 	padding: 0.5em;
 	width: 616px;
 	position: absolute;
+	cursor:pointer;
 }
 
 .featured_project_image{

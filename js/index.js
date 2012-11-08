@@ -2,6 +2,11 @@ $(document).ready(function(){
 
 	$('#anim').css({'width':'633px'});
 
+	$('.featured_project, .more_button').live('click', function(){
+		alert('Project Spotlight : Coming very soon...');
+		return false;
+	});
+
 	//MENU PROJECTS
 	var items = $('#container article'),
 	itemsByTags = {};
@@ -41,7 +46,7 @@ $(document).ready(function(){
 	// Outside the plugin
 	var $element = {
 		jqelement : $('.element'),
-		action_expand : '.action-expand',
+		action_expand : '.elem-image, .action',
 		action_collapse : '.collapse_button',
 		subelements_toExpand : '.elem-image div, .box_title, .banner, .action, .elem-descr, .efooter, .more_button, .elem-image .small-image, .elem-image .large-image',
 		subelements_effects : '.elem-descr, .elem-image, .efooter, .banner',

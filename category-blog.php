@@ -132,8 +132,11 @@ a:hover {
 </style>
 <script>
 	$(document).ready(function(){
-		$('#menu-blog').addClass('active');
 
+		$('.archive_box ul li a[href="'+ window.location.href +'"]').addClass('active');
+		$('.archive-year a[href*="'+ window.location.pathname.split('/')[1] +'"]').addClass('active');
+		$('#menu-blog').addClass('active');
+		
 		var halfWay = ($(document).height()/2);
 		var offset = 2;
 		var inAction = false;
@@ -295,7 +298,7 @@ a:hover {
 				global $wpdb;
 				$limit = 0;
 				$year_prev = null;
-				$months = $wpdb->get_results("SELECT DISTINCT MONTH( post_date ) AS month ,	YEAR( post_date ) AS year, COUNT( id ) FROM $wpdb->posts WHERE ID IN (SELECT object_id FROM wp_term_relationships WHERE TERM_TAXONOMY_ID = 5) GROUP BY month , year ORDER BY post_date DESC");
+				$months = $wpdb->get_results("SELECT DISTINCT MONTH( post_date ) AS month ,	YEAR( post_date ) AS year, COUNT( id ) FROM $wpdb->posts WHERE ID IN (SELECT object_id FROM wp_term_relationships WHERE TERM_TAXONOMY_ID = 5) AND post_status = 'publish' GROUP BY month , year ORDER BY post_date DESC");
 				foreach($months as $month) : $year_current = $month->year;
 
 				if ($year_current != $year_prev){
@@ -314,7 +317,7 @@ a:hover {
 		</div>
 	</div>
 	</div>
-
-</div>
 <?php get_footer(); ?>
 </div><!-- #wrapper -->
+
+</div>

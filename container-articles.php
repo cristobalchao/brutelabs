@@ -18,7 +18,6 @@
 	} 
  ?>
 
-
 <article id="post-<?php the_ID(); ?>" class="element" data-filter="<?php echo $tag_name;?>">
 	<div class="box_title">
 		<div class="title_text"><?php echo get_the_title(); ?></div>
@@ -43,7 +42,7 @@
 	</div>
 	<div class="elem-descr">
 		<div class="elem-title"><?php echo get_the_title(); ?></div>
-		<div class="elem-content"><?php the_content(); //the_field('content'); ?></div>
+		<div class="elem-content"><?php the_content(); ?></div>
 	</div>
 	<div class="action">
 		<div class="action-title"><?php the_field('action_title'); ?></div>

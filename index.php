@@ -39,8 +39,7 @@ get_header(); ?>
 				</div>
 			</div>
 			<div id="updates_feeds">
-				<ul id="update_feeds_list">
-				</ul>
+				<ul id="update_feeds_list"></ul>
 			</div>
 		</div>
 	</div>

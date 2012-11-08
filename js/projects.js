@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+	$('.more_button').live('click', function(){
+		alert('Project Spotlight : Coming very soon...');
+		return false;
+	});
+
 	$('#menu-projects').addClass('active');
 
 	//MENU PROJECTS
@@ -41,7 +46,7 @@ $(document).ready(function(){
 	// Outside the plugin
 	var $element = {
 		jqelement : $('.element'),
-		action_expand : '.action-expand',
+		action_expand : '.elem-image, .action',
 		action_collapse : '.collapse_button',
 		subelements_toExpand : '.elem-image div, .box_title, .banner, .action, .elem-descr, .efooter, .more_button, .elem-image .small-image, .elem-image .large-image',
 		subelements_effects : '.elem-descr, .elem-image, .efooter, .banner',
@@ -51,5 +56,38 @@ $(document).ready(function(){
 			scroll:true
 		}
 	};
-	$('#container').kaotope($element); 
+	$('#container').kaotope($element);
+
+	var stp_resize = false;
+
+	$(window).resize(function() {
+		if ($(window).width() < 950) {
+			if (!stp_resize) {
+				$('nav#menu').animate({'width':'635px'},400);
+				$('#anim').animate({'width':'633px'},400,
+				function(){
+					var height = $("#submenu").height();
+					$('#anim').animate({height:height},400);
+				});
+				$('#container').css({'margin-left':0,'margin-right':0});
+				$('#container').css({'width':'654px'});
+				$('#container').kaotope($element);
+				stp_resize=true;
+			} 
+		} else if ($(window).width() > 950) {
+			if (stp_resize) {
+				$('nav#menu').animate({'width':'962px'},400);
+
+				$('#anim').animate({'width':'100%'},400,
+					function(){
+						var height = $("#submenu").height();
+						$('#anim').animate({height:height},400);
+					});
+				$('#container').css({'margin-left':'auto','margin-right':'auto'});
+				$('#container').css({'width':'976px'});
+				$('#container').kaotope($element);
+				stp_resize=false;
+			}
+		}
+	});
 });

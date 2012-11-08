@@ -515,7 +515,6 @@
 			nRow++;
 			$(this).attr('data-id',$kao_element.cells[i] = i++);
 			(x+x_var < $kao_container.width)?null:(
-				console.log(nRow),
 				setNumElemRow(nRow-1),
 				$(this).addClass('rElem'),
 				y+=y_var,
@@ -571,7 +570,6 @@
 			time_effect : timeEff,
 			scroll : enabScroll
 		}
-		console.log($activate);
 		if (!$activate) {
 			//FILTER
 			if (args.hasOwnProperty('filter')){
