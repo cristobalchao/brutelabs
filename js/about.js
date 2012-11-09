@@ -1,14 +1,14 @@
 $(document).ready(function(){
 	$('#menu-about').addClass('active');
 
-	$('.principle').click(function(){
+	/*$('.principle').click(function(){
 		if (!$(this).hasClass('active')){
 			$('.principle .content').slideUp();
 			$('.content',$(this)).slideDown();
 			$('.principle').removeClass('active');
 			$(this).addClass('active');
 		}
-	});
+	});*/
 
 	$('.sbmstitle').click(function(){
 		if (!$(this).hasClass('active')){

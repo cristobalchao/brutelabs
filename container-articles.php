@@ -39,6 +39,7 @@
 		$large_image = get_field('large_image'); ?>
 		<div class="small-image" style="background-image:url('<?php echo $small_image['url']; ?>')"></div>
 		<div class="large-image" style="background-image:url('<?php echo $large_image['url']; ?>')"></div>
+		<img class="expand-proj" src="<?php echo get_template_directory_uri(); ?>/images/expand.png" />
 	</div>
 	<div class="elem-descr">
 		<div class="elem-title"><?php echo get_the_title(); ?></div>

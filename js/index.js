@@ -42,11 +42,24 @@ $(document).ready(function(){
 	});
 	var height = $("#submenu").height();
 	$("#anim").css({ height : height }).show();
+	var _action = '.elem-image, .action';
+
+	$(_action).mouseover(function(){
+		if (!$(this).parent('.element').hasClass('large')) {
+			$(this).parent('.element').addClass('shadow');
+			$(this).parent('.element').children('.elem-image').children('.expand-proj').css({'display':'block'});
+		}
+	});
+
+	$(_action).mouseout(function(){
+		$('.element').removeClass('shadow');
+		$('.expand-proj').hide();
+	});
 
 	// Outside the plugin
 	var $element = {
 		jqelement : $('.element'),
-		action_expand : '.elem-image, .action',
+		action_expand : _action,
 		action_collapse : '.collapse_button',
 		subelements_toExpand : '.elem-image div, .box_title, .banner, .action, .elem-descr, .efooter, .more_button, .elem-image .small-image, .elem-image .large-image',
 		subelements_effects : '.elem-descr, .elem-image, .efooter, .banner',
@@ -64,7 +77,7 @@ $(document).ready(function(){
 		if ($('#menu li a').hasClass('active')){
 			$('#entry,.bot-col').animate({ height: 'toggle', opacity: 'toggle' }, 800);
 			$('#menu li a').removeClass('active');
-
+			$('#sbmcontent').css({'width':'520px'});
 			$('#anim').animate({'width':'633px'},400,
 				function(){
 					var height = $("#submenu").height();
@@ -81,6 +94,7 @@ $(document).ready(function(){
 			$('#entry,.bot-col').animate({ height: 'toggle', opacity: 'toggle' }, 800);
 			$(this).addClass('active');
 			var height = $("#submenu").height();
+			$('#sbmcontent').css({'width':'840px'});
 			$('#anim').animate({'width':'100%'},400,
 				function(){
 					var height = $("#submenu").height();

@@ -107,10 +107,6 @@ nav#submenu .sbmstitle.active:after {
 	text-decoration: underline;
 }
 
-.principle:hover{
-	cursor: pointer;
-}
-
 .principle {
 	margin: 1em 0;
 	padding: 1.5em;
@@ -123,7 +119,6 @@ nav#submenu .sbmstitle.active:after {
 	font-size: 2em;
 	font-weight: lighter;
 	text-transform: uppercase;
-	opacity: .6;
 }
 
 .principle.active .title  {
@@ -142,7 +137,6 @@ nav#submenu .sbmstitle.active:after {
 .principle .content {
 	margin-left: 29px;
 	margin-top: 1em;
-	display: none;
 }
 
 .banner_text .people_link {

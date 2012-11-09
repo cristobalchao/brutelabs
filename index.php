@@ -34,11 +34,6 @@ get_header(); ?>
 				<div class="box_title col_box">
 					<span>updates</span>
 				</div>
-				<div id="rss_feed">
-					<a href="http://api.twitter.com/1/statuses/user_timeline/brutelabs.rss" target="_blank">
-						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/rss.png">
-					</a>
-				</div>
 			</div>
 			<div id="updates_feeds">
 				<ul id="update_feeds_list"></ul>
@@ -84,11 +79,6 @@ get_header(); ?>
 					</a>
 				</li>
 			</ul>
-			<div class="more_button large" style="margin-top:0">
-				<a href="#" target="_blank">
-					<img src="http://3.brutelabs2.appspot.com/media/image/buttons/more_+.gif" style="height:30px">
-				</a>
-			</div>
 		</div>  
 	</div>
 	<div id="donate">
@@ -101,7 +91,7 @@ get_header(); ?>
 			Make a tax-deductible donation to BRUTE LABS and help make an impact right away.
 		</div>
 		<div class="donate_button">
-			<img src="http://3.brutelabs2.appspot.com/media/image/buttons/donate_+.gif">
+			<img src="http://3.brutelabs2.appspot.com/media/image/buttons/donate_+.gif" style="opacity:1">
 		</div>
 	</div>
 	<div id="brute_goods" class="bordered_box">
@@ -116,7 +106,7 @@ get_header(); ?>
 		<div class="brute_descr">
 			<div class="buy_button">
 				<a href="#" target="_blank">
-					<img src="http://3.brutelabs2.appspot.com/media/image/buttons/more_+.gif" style="height:30px">
+					<img src="http://3.brutelabs2.appspot.com/media/image/buttons/more_+.gif" style="height:30px;margin-right:10px">
 				</a>
 			</div>
 			<p class="title"> Water is Life Tshirt $18.00 </p>

@@ -6,7 +6,7 @@ $(document).ready(function(){
 	});
 
 	$('#menu-projects').addClass('active');
-
+	$('#sbmcontent').css({'width':'840px'});
 	//MENU PROJECTS
 	var items = $('#container article'),
 	itemsByTags = {};
@@ -42,7 +42,20 @@ $(document).ready(function(){
 	});
 	var height = $("#submenu").height();
 	$("#anim").css({ height : height }).show();
+	var _action = '.elem-image, .action';
 
+	$(_action).mouseover(function(){
+		if (!$(this).parent('.element').hasClass('large')) {
+			$(this).parent('.element').addClass('shadow');
+			$(this).parent('.element').children('.elem-image').children('.expand-proj').css({'display':'block'});
+		}
+	});
+
+	$(_action).mouseout(function(){
+		$('.element').removeClass('shadow');
+		$('.expand-proj').hide();
+	});
+	
 	// Outside the plugin
 	var $element = {
 		jqelement : $('.element'),
@@ -63,6 +76,7 @@ $(document).ready(function(){
 	$(window).resize(function() {
 		if ($(window).width() < 950) {
 			if (!stp_resize) {
+				$('#sbmcontent').css({'width':'520px'});
 				$('nav#menu').animate({'width':'635px'},400);
 				$('#anim').animate({'width':'633px'},400,
 				function(){
@@ -77,7 +91,7 @@ $(document).ready(function(){
 		} else if ($(window).width() > 950) {
 			if (stp_resize) {
 				$('nav#menu').animate({'width':'962px'},400);
-
+				$('#sbmcontent').css({'width':'840px'});
 				$('#anim').animate({'width':'100%'},400,
 					function(){
 						var height = $("#submenu").height();

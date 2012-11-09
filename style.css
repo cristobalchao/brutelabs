@@ -20,7 +20,7 @@ time, mark, audio, video {
 }
 
 html {
-	background: #F1F1F1;
+	background: #F1F1F3;
 	font-family: helvetica,arial,sans-serif;
 }
 
@@ -117,10 +117,11 @@ nav#submenu #sbmtitle {
 	float: left;
 	font-size: 0.9em;
 	font-weight: bold;
-	margin-left: 0.5em;
-	margin-top: 0.35em;
+	margin-left: 10px;
+	margin-top: 5px;
 	text-transform: uppercase;
 	width: 6.5em;
+	font-family: 'DIN-Light'
 }
 
 nav#submenu #sbmcontent {
@@ -129,7 +130,8 @@ nav#submenu #sbmcontent {
 	margin-bottom: 0.5em;
 	margin-top: 0.2em;
 	color: #777777;
-	padding:6px;
+	padding:5px 0;
+	width: 520px;
 }
 
 nav#submenu #sbmcontent a {
@@ -213,6 +215,21 @@ nav#submenu .elem:hover {
 	width: 620px;
 	height: 560px;
 	z-index: 100;
+}
+
+.shadow {
+	-moz-box-shadow: 0 0 8px #000;
+	-webkit-box-shadow: 0 0 8px #000;
+	box-shadow: 0 0 8px #000;
+}
+
+.expand-proj {
+	height: 20px !important;
+	width: 20px !important;
+	right: 12px;
+	top: 12px;
+	position: absolute;
+	display: none;
 }
 
 .elem-image:hover, .action:hover {
@@ -361,6 +378,12 @@ nav#submenu .elem:hover {
 	font-family: Helvetica;
 	font-weight: bold;
 	text-transform: uppercase;
+}
+
+.box_title span {
+	font-family: 'DIN-Reg';
+	margin-left: 10px;
+	font-size: 0.9em;
 }
 
 .box_title .title_text {
@@ -557,7 +580,7 @@ a {
 
 .bordered_title_box {
 	border-bottom: 1px solid #D8D8D8;
-	height: 2em;
+	height: 38px;
 	padding: 0.2em 0.5em;
 }
 
@@ -594,7 +617,7 @@ li {
 #updates_feeds {
 	height: 20em;
 	overflow: hidden;
-	padding: 1em 1em 0.5em;
+	padding: 0.5em 1em;
 }
 
 #entry .box_title {
@@ -619,13 +642,14 @@ li {
 }
 
 #stay_connected #stay_connected_list {
-	height: 3em;
+	height: 50px;
 	width: 18em;
+	padding: 0px 18px;
 }
 
 #stay_connected #stay_connected_list ul li {
 	float: left;
-	margin-left: 10px;
+	margin: 5px 4px;
 }
 
 #stay_connected #stay_connected_list img,#rss_feed img, #donate .donate_button img,.buy_button {
@@ -638,6 +662,7 @@ li {
 
 #donate {
 	background-color: #26ABE2;
+	height:135px;
 }
 
 #donate .box_title, #donate .content{
@@ -647,12 +672,12 @@ li {
 #donate .content{
 	font-size: 0.8em;
 	margin-bottom: 1em;
-	padding: 0.2em 0.5em;
+	padding: 0.2em 1.5em;
 }
 
 #donate .donate_button {
 	margin-top: 2px;
-	padding: 0.2em 0.5em;
+	padding: 0.2em 20px;
 }
 
 #donate .donate_button:hover {
@@ -666,13 +691,14 @@ li {
 #brute_goods .brute_descr{
 	font-size: 0.8em;
 	color: gray;
-	padding: 10px 10px;
+	padding: 10px 10px 10px 20px;
 }
 
 #brute_goods .brute_descr .title{
 	font-weight: bold;
 	color: black;
 	margin-bottom: 5px;
+
 }
 
 .buy_button {
