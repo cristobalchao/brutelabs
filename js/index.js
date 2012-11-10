@@ -46,6 +46,8 @@ $(document).ready(function(){
 
 	$(_action).mouseover(function(){
 		if (!$(this).parent('.element').hasClass('large')) {
+			$(this).parent('.element').children('.elem-image').children('.small-image').css({'opacity':.7});
+			$(this).parent('.element').children('.action').css({'opacity':'.6'});
 			$(this).parent('.element').addClass('shadow');
 			$(this).parent('.element').children('.elem-image').children('.expand-proj').css({'display':'block'});
 		}
@@ -54,12 +56,14 @@ $(document).ready(function(){
 	$(_action).mouseout(function(){
 		$('.element').removeClass('shadow');
 		$('.expand-proj').hide();
+		$(this).parent('.element').children('.elem-image').children('.small-image').css({'opacity':1});
+		$(this).parent('.element').children('.action').css({'opacity':1});
 	});
 
 	// Outside the plugin
 	var $element = {
 		jqelement : $('.element'),
-		action_expand : _action,
+		action_expand : '.elem-image .small-image, .action',
 		action_collapse : '.collapse_button',
 		subelements_toExpand : '.elem-image div, .box_title, .banner, .action, .elem-descr, .efooter, .more_button, .elem-image .small-image, .elem-image .large-image',
 		subelements_effects : '.elem-descr, .elem-image, .efooter, .banner',
@@ -135,10 +139,10 @@ $(document).ready(function(){
 		$clone.children('.featured_project_description').children('.feature_project_text').html(st);
 	
 		$fprj.after($clone);
-		$fprj.animate({opacity:0},2000,function(){
+		$fprj.animate({opacity:0},1000,function(){
 			$fprj.remove();
 		});
-		$clone.animate({opacity:1},2000);
+		$clone.animate({opacity:1},1000);
 	};
 			
 	function timer() {

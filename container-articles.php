@@ -22,7 +22,7 @@
 	<div class="box_title">
 		<div class="title_text"><?php echo get_the_title(); ?></div>
 		<div class="collapse_button">
-			<img src="http://3.brutelabs2.appspot.com/media/image/buttons/x.png">
+			<img src="<?php echo get_template_directory_uri(); ?>/images/minimize.png" />
 		</div>
 	</div>
 	<div class="banner">
@@ -64,5 +64,27 @@
 				<img src="http://3.brutelabs2.appspot.com/media/image/buttons/more_+.gif">
 			</a>
 		</div>
+	</div>
+	<div class="hide" style="display:none;">
+
+<?php $args = array (
+                               'post_type' => 'attachment',
+                               'orderby' => 'date',
+                               'status' => 'publish',
+                               'post_parent' => $post->ID
+                        ); ?>
+                        <?php $attachments = get_posts($args);?>
+
+		<?php 
+		if ( $attachments ) {
+			foreach ( $attachments as $attachment ) {
+				echo '<li>';
+				echo '<div>'.$post->ID.'</div>';
+       			echo '<div>'.get_attached_file($attachment->ID).'</div>'; //wp_get_attachment_image( $attachment->ID, 'thumbnail' );
+       			echo '</li>';
+   			}
+		}
+
+		?>
 	</div>
 </article>

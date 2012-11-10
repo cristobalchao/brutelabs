@@ -46,6 +46,8 @@ $(document).ready(function(){
 
 	$(_action).mouseover(function(){
 		if (!$(this).parent('.element').hasClass('large')) {
+			$(this).parent('.element').children('.elem-image').children('.small-image').css({'opacity':.7});
+			$(this).parent('.element').children('.action').css({'opacity':'.6'});
 			$(this).parent('.element').addClass('shadow');
 			$(this).parent('.element').children('.elem-image').children('.expand-proj').css({'display':'block'});
 		}
@@ -54,6 +56,8 @@ $(document).ready(function(){
 	$(_action).mouseout(function(){
 		$('.element').removeClass('shadow');
 		$('.expand-proj').hide();
+		$(this).parent('.element').children('.elem-image').children('.small-image').css({'opacity':1});
+		$(this).parent('.element').children('.action').css({'opacity':1});
 	});
 	
 	// Outside the plugin
