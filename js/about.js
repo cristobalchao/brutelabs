@@ -24,7 +24,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('.get_people_ajax').live('click',function(event){
+	$('.get_people_ajax').unbind('click').click(function(event){
 		event.preventDefault();
 		clearTimeout(_timer);
 		if(! $('.info-people .bio_section').is(':animated') && !$(this).hasClass('active') ) {

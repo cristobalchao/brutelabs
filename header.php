@@ -69,7 +69,7 @@
 <div id="page" class="hfeed">
 	<div id="wrapper">
 		<header>
-			<a href="<?php echo get_site_url(); ?>"><div id="brute_logo_box"></div></a>
+			<a id="menu-main" href="<?php echo get_site_url(); ?>"><div id="brute_logo_box"></div></a>
 			<nav id="menu">	
 				<ul>
 					<li>

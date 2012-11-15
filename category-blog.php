@@ -101,8 +101,8 @@ a:hover {
 	text-align:center;
 	cursor:pointer; 
 	cursor:hand;
-	width: 478px;
-	height: 268px;
+	max-width: 580px;
+	max-height: 500px;
 }
 
 .wp-caption {

@@ -14,7 +14,7 @@
 get_header(); ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/index.js" type="text/javascript"></script>
 
-<div id="entry">
+<div id="entry" class="base_elem">
 	<div class="left-col">
 		<ul>
 			<li class="featured_project">
@@ -44,7 +44,7 @@ get_header(); ?>
 		<div id="banner" class="banner"><div><div class="banner_text"><span class="banner_prefix">BRUTE LABS IS</span><span class="banner_text_after_prefix"> Well done in Ghana</span></div></div><div style="clear:both; width: 100%; height: 10px;"></div></div>
 	</div>
 </div>
-<div class="right-col bot-col">
+<div class="right-col bot-col base_elem">
 	<div id="stay_connected" class="bordered_box">
 		<div class="title_box">
 			<div class="box_title col_box">

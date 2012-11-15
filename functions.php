@@ -661,6 +661,12 @@ function extra_user_profile_fields( $user ) { ?>
 </tr>
 </table>
 <?php }
+
+if( !is_admin()){
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"), false, '1.7.1');
+	wp_enqueue_script('jquery');
+}
  
 add_action( 'personal_options_update', 'save_extra_user_profile_fields' );
 add_action( 'edit_user_profile_update', 'save_extra_user_profile_fields' );
