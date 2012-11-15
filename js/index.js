@@ -89,13 +89,11 @@ $(document).ready(function(){
 
 	//SPOTLIGHT
 	$(window).on('hashchange',function() {
-
-		/*
 		var stateSpot = window.location.href.split('#/spotlight/')[1];
 		var stateProj = window.location.href.split(window.location.host+'/')[1];
 		if (stateProj.indexOf('#/main/') == -1) {
 			(!!stateSpot)?activeSpotlight(stateSpot):(stateProj == "#" || stateProj == "" || stateProj.indexOf("#/filter/") > -1 || stateProj.indexOf("#/projects/") > -1)?hideSpotlight():null;
-		}*/
+		}
 	});
 
 	/* $('.more_button').unbind('click').click(function(){
@@ -104,8 +102,6 @@ $(document).ready(function(){
 		$('#menu-projects').attr('href',_url).addClass('effect');
 		$('.back').attr('href',_url).addClass('effect');
 	}); */
-
-	$('#menu-main').attr('href',$('#menu-main').attr('href')+'#/main/');
 
 	/* $('#menu-projects').unbind('click').click(function(){
 		_url = $('.more_button a').attr('href');
@@ -129,9 +125,11 @@ $(document).ready(function(){
 		return false;
 	});*/
 
+	//$('#menu-main').attr('href',$('#menu-main').attr('href')+'#/main/');
+
 	$('#anim').css({'width':'633px'});
 
-	$('.featured_project, .buy_button a, .donate_button img').live('click', function(){
+	$('.buy_button a, .donate_button img').live('click', function(){
 		alert('Coming very soon...');
 		return false;
 	});
@@ -238,15 +236,14 @@ $(document).ready(function(){
 		$clone = $fprj.clone();
 		$clone.css({'opacity':'0'});
 		$('#banner .banner_text .banner_text_after_prefix').html($('article[data-id="'+arr[cnt]+'"] .banner .banner_text .banner_text_after_prefix',$container).html())
-
+		var url_spotlight = '#/spotlight/'+$('article[data-id="'+arr[cnt]+'"]').attr('id').split('-')[1];
+		$('.go_spot').attr('href',url_spotlight);
 		var url_img = $('article[data-id="'+arr[cnt]+'"] .elem-image .large-image',$container).css('background-image');
 		$clone.children('.mark_project_image').children('.featured_project_image').css({'background-image':url_img});
 		var ftitle = $('article[data-id="'+arr[cnt]+'"] .elem-title',$container).html();
 		var fcontent = $('article[data-id="'+arr[cnt]+'"] .elem-content',$container).html();
 		$clone.children('.featured_project_description').children('.feature_project_name').html(ftitle);
-		var tot = 210-ftitle.length;
-		(fcontent.length > tot)?st = fcontent.substr(0,tot)+'...':st = fcontent.substr(0,tot);
-		$clone.children('.featured_project_description').children('.feature_project_text').html(st);
+		$clone.children('.featured_project_description').children('.feature_project_text').html(fcontent);
 
 		$fprj.after($clone);
 		$fprj.animate({opacity:0},1000,function(){

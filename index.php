@@ -17,15 +17,17 @@ get_header(); ?>
 <div id="entry" class="base_elem">
 	<div class="left-col">
 		<ul>
-			<li class="featured_project">
-				<div class="mark_project_image">
-					<div class="featured_project_image"> </div>
-				</div>
-				<div class="featured_project_description">
-					<span class="feature_project_name"></span>
-					<span class="feature_project_text"></span>
-				</div>
-			</li>
+			<a class="go_spot" href="#">
+				<li class="featured_project">
+					<div class="mark_project_image">
+						<div class="featured_project_image"> </div>
+					</div>
+					<div class="featured_project_description">
+						<span class="feature_project_name"></span>
+						<span class="feature_project_text"></span>
+					</div>
+				</li>
+			</a>
 		</ul>
 	</div>
 	<div class="right-col">
@@ -40,9 +42,11 @@ get_header(); ?>
 			</div>
 		</div>
 	</div>
-	<div id="brute_banner">
-		<div id="banner" class="banner"><div><div class="banner_text"><span class="banner_prefix">BRUTE LABS IS</span><span class="banner_text_after_prefix"> Well done in Ghana</span></div></div><div style="clear:both; width: 100%; height: 10px;"></div></div>
-	</div>
+	<a class="go_spot" href="#">
+		<div id="brute_banner">
+			<div id="banner" class="banner"><div><div class="banner_text"><span class="banner_prefix">BRUTE LABS IS</span><span class="banner_text_after_prefix"> Well done in Ghana</span></div></div><div style="clear:both; width: 100%; height: 10px;"></div></div>
+		</div>
+	</a>
 </div>
 <div class="right-col bot-col base_elem">
 	<div id="stay_connected" class="bordered_box">

@@ -39,6 +39,7 @@ get_header(); ?>
 .blog_entries > .box_title {
 	margin: 8px;
 	padding-left: 8px;
+	height: 20px;
 }
 
 .blog_entry {
