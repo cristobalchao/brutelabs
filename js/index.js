@@ -87,16 +87,27 @@ function hideSpotlight(){
 
 $(document).ready(function(){
 
-	$('.more_button').unbind('click').click(function(){
+	//SPOTLIGHT
+	$(window).on('hashchange',function() {
+
+		/*
+		var stateSpot = window.location.href.split('#/spotlight/')[1];
+		var stateProj = window.location.href.split(window.location.host+'/')[1];
+		if (stateProj.indexOf('#/main/') == -1) {
+			(!!stateSpot)?activeSpotlight(stateSpot):(stateProj == "#" || stateProj == "" || stateProj.indexOf("#/filter/") > -1 || stateProj.indexOf("#/projects/") > -1)?hideSpotlight():null;
+		}*/
+	});
+
+	/* $('.more_button').unbind('click').click(function(){
 		_url = $('a',this).attr('href').split('#/spotlight/')[0];
 		(!_url)?_url='#':null;
 		$('#menu-projects').attr('href',_url).addClass('effect');
 		$('.back').attr('href',_url).addClass('effect');
-	});
+	}); */
 
 	$('#menu-main').attr('href',$('#menu-main').attr('href')+'#/main/');
 
-	$('#menu-projects').unbind('click').click(function(){
+	/* $('#menu-projects').unbind('click').click(function(){
 		_url = $('.more_button a').attr('href');
 		$('.more_button a').attr('href', '#/projects/'+_url);
 
@@ -116,7 +127,7 @@ $(document).ready(function(){
 		}
 
 		return false;
-	});
+	});*/
 
 	$('#anim').css({'width':'633px'});
 
@@ -129,7 +140,7 @@ $(document).ready(function(){
 	var items = $('#container article'),
 	itemsByTags = {};
 
-	$("<a id='.*' class='elem' href='#all'>All</a>").appendTo('#filter');
+	$("<a id='.*' class='elem' href='#/filter/all'>All</a>").appendTo('#filter');
 
 	items.each(function(i){
 		var elem = $(this),
@@ -150,7 +161,7 @@ $(document).ready(function(){
 					id: '.'+value,
 					class: 'elem',
 					html: text,
-					href:'#'+value
+					href:'#/filter/'+value
 				}).appendTo('#filter');
 			}
 
@@ -296,15 +307,6 @@ $(document).ready(function(){
 				$('#image_selected').remove();
 			});
 			$clone.animate({opacity:1},800);
-		}
-	});
-
-	//SPOTLIGHT
-	$(window).on('hashchange',function() {
-		var stateSpot = window.location.href.split('#/spotlight/')[1];
-		var stateProj = window.location.href.split(window.location.host+'/')[1];
-		if (stateProj.indexOf('#/main/') == -1) {
-			(!!stateSpot)?activeSpotlight(stateSpot):(stateProj == "#" || stateProj == "" || stateProj.indexOf("#/filter/") > -1 || stateProj.indexOf("#/projects/") > -1)?hideSpotlight():null;
 		}
 	});
 });

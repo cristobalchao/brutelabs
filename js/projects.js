@@ -86,7 +86,7 @@ $(document).ready(function(){
 	var items = $('#container article'),
 	itemsByTags = {};
 
-	$("<a id='.*' class='elem' href='#all'>All</a>").appendTo('#filter');
+	$("<a id='.*' class='elem' href='#/filter/all'>All</a>").appendTo('#filter');
 
 	items.each(function(i){
 		var elem = $(this),

@@ -410,9 +410,12 @@
 
 	function refreshPage(args){
 		if ($kao_element.filter){
-			var filterPage = window.location.href.split('#')[1];
+			var filterPage = window.location.href.split('#/filter/')[1];
 			filterPage = (!filterPage)?'all':filterPage;
-			$($kao_element.filter+'[href="#'+filterPage+'"]').filterElements(args);
+			$filter_elem = $($kao_element.filter+'[href="#/filter/'+filterPage+'"]');
+			$($kao_element.filter).removeClass('active');
+			$filter_elem.addClass('active');
+			$filter_elem.filterElements(args);
 		}
 	}
 
@@ -433,26 +436,32 @@
 				$(this).css({scale:0.001,opacity:0});
 			}
 		});
-		$kao_element.selector.removeClass('rElem');
 		$kao_element.cells = $.extend(true, [], arrAux);
 		$kao_element.selector.css({opacity:0});
+		console.log(arrAux);
 		//Positioning the elements
 		collapse();
 		for (var i=0;i < arrAux.length;i++) {
 			var val = arrAux[i];
-			if ((i+1)%(parseInt($numElemRow)) == 0) {
-				$($kao_element.selector.selector+'[data-id="'+val+'"]').addClass('rElem');
-			}
 			
-			(args=="ini")?(
-					console.log('a'),
-					$($kao_element.selector.selector+'[data-id="'+val+'"]').css({translate: getPos(i) }),
-					$($kao_element.selector.selector+'[data-id="'+val+'"]').animate({opacity:0},$kao_element.time_effect,function(){
-						$(this).css({scale:1,opacity:1});
-					})
-				):(
-					$($kao_element.selector.selector+'[data-id="'+val+'"]').css({ scale:1,opacity:1, translate: getPos(i) })
-				);
+			//if is going to be rElem
+			if ((i+1)%(parseInt($numElemRow)) == 0) {
+				$($kao_element.selector.selector+'[data-id="'+val+'"]')
+					.css({ scale:1,opacity:1,translate: getPos(i), left:0})
+					.addClass('rElem')
+					.delay($kao_element.time_effect)
+					.queue(function() {
+						$(this).css({left:'auto'}).dequeue();
+					});
+			} else /*if not */{
+				$($kao_element.selector.selector+'[data-id="'+val+'"]')
+					.css({ scale:1,opacity:1,translate: getPos(i), left:0})
+					.delay($kao_element.time_effect)
+					.queue(function() {
+						$(this).removeClass('rElem').dequeue();
+					});
+			}
+
 			$($kao_element.selector.selector+'[data-id="'+val+'"]').setSavedPos(getPos(i));
 		}
 		$kao_element.last_pos = getPos(i);
@@ -583,7 +592,7 @@
 			//FILTER
 			if (args.hasOwnProperty('filter')){
 				$($kao_element.filter).live('click',function(){
-					$(this).filterElements();
+					//$(this).filterElements();
 				});
 			}
 
