@@ -34,13 +34,15 @@
 		</div>
 		<div style="clear:both; width: 100%; height: 15px;"></div>
 	</div>
-	<div class="elem-image">
-		<?  $small_image = get_field('small_image');
-		$large_image = get_field('large_image'); ?>
-		<div class="small-image" style="background-image:url('<?php echo $small_image['url']; ?>')"></div>
-		<div class="large-image" style="background-image:url('<?php echo $large_image['url']; ?>')"></div>
-		<img class="expand-proj" src="<?php echo get_template_directory_uri(); ?>/images/expand.png" />
-	</div>
+		<div class="elem-image">
+			<?  $small_image = get_field('small_image');
+			$large_image = get_field('large_image'); ?>
+			<div class="small-image" style="background-image:url('<?php echo $small_image['url']; ?>')"></div>
+			<a href="#/spotlight/<?php the_ID(); ?>">
+				<div class="large-image" style="background-image:url('<?php echo $large_image['url']; ?>')"></div>
+			</a>
+			<img class="expand-proj" src="<?php echo get_template_directory_uri(); ?>/images/expand.png" />
+		</div>
 	<div class="elem-descr">
 		<div class="elem-title"><?php echo get_the_title(); ?></div>
 		<div class="elem-content"><?php the_content(); ?></div>

@@ -72,6 +72,7 @@
 			<a id="menu-main" href="<?php echo get_site_url(); ?>"><div id="brute_logo_box"></div></a>
 			<nav id="menu">	
 				<ul>
+					<li style="width:10px"></li>
 					<li>
 						<a href="<?php echo get_site_url(); ?>/category/projects" class="title" id="menu-projects">PROJECTS</a>
 					</li>

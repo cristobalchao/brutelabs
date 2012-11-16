@@ -153,6 +153,7 @@ $(document).ready(function(){
 	
 	$('#container').kaotope($element);
 
+	/*
 	var stp_resize = false;
 
 	$(window).resize(function() {
@@ -185,7 +186,7 @@ $(document).ready(function(){
 				stp_resize=false;
 			}
 		}
-	});
+	});*/
 
 	//SPOTLIGHT
 	$(window).on('hashchange',function() {
