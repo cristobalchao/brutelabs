@@ -91,8 +91,9 @@ $(document).ready(function(){
 	$(window).on('hashchange',function() {
 		var stateSpot = window.location.href.split('#/spotlight/')[1];
 		var stateProj = window.location.href.split(window.location.host+'/')[1];
+
 		if (stateProj.indexOf('#/main/') == -1) {
-			(!!stateSpot)?activeSpotlight(stateSpot):(stateProj == "#" || stateProj == "" || stateProj.indexOf("#/filter/") > -1 || stateProj.indexOf("#/projects/") > -1)?hideSpotlight():null;
+			(!!stateSpot)?activeSpotlight(stateSpot):(stateProj == "#" || stateProj == "" || stateProj.indexOf("#/filter/") > -1 || stateProj.indexOf("#/projects/") > -1 || stateProj == "brutepress/#" || stateProj == "brutepress" || stateProj.indexOf("#/filter/") > -1 || stateProj.indexOf("brutepress/#/projects/") > -1)?hideSpotlight():null;
 		}
 	});
 

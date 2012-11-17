@@ -438,7 +438,6 @@
 		});
 		$kao_element.cells = $.extend(true, [], arrAux);
 		$kao_element.selector.css({opacity:0});
-		console.log(arrAux);
 		//Positioning the elements
 		collapse();
 		for (var i=0;i < arrAux.length;i++) {
