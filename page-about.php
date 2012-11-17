@@ -447,7 +447,7 @@ nav#submenu .sbmstitle.active:after {
 
 
 <?php /* Start the Loop */ ?>
-<?php query_posts('category_name=Projects'); ?>
+<?php query_posts(array('category_name' => 'Projects', 'posts_per_page' => -1 )); ?>
 <div id="banners">
 <?php $cnt = 0;
 	while ( have_posts() ) : the_post(); ?>

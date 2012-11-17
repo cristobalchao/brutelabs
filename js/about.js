@@ -127,10 +127,10 @@ $(document).ready(function(){
 
 	var arr = [];
 	
-	for(var i = 0; i < 12; i++) {
+	for(var i = 0; i < art_len; i++) {
 	    arr.push(i);
 	}
-	
+
 	var _timer = window.setInterval(timer, 5000);
 	
 	var cnt = -1;

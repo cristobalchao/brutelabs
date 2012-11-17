@@ -85,11 +85,12 @@
 		$i = 0;
 		foreach ( $attachments as $attachment ) {
 			if (strpos($attachment->post_mime_type, "image") !== false) {
-				if ($i == 0) $spot_images = '<img class="active item" src="" url="'.wp_upload_dir()['baseurl'].'/'.get_post_meta($attachment->ID, '_wp_attached_file', true).'" />';
-				else $spot_images .= '<img class="item" src="" url="'.wp_upload_dir()['baseurl'].'/'.get_post_meta($attachment->ID, '_wp_attached_file', true).'" />';
+				$upload_dir = wp_upload_dir();
+				if ($i == 0) $spot_images = '<img class="active item" src="" url="'.$upload_dir['baseurl'].'/'.get_post_meta($attachment->ID, '_wp_attached_file', true).'" />';
+				else $spot_images .= '<img class="item" src="" url="'.$upload_dir['baseurl'].'/'.get_post_meta($attachment->ID, '_wp_attached_file', true).'" />';
 				$i++;
 			} else if (strpos($attachment->post_mime_type, "pdf") !== false) {
-				$spot_downloads .= '<span class="download_link">→ <a href="'.wp_upload_dir()['baseurl'].'/'.get_post_meta($attachment->ID, '_wp_attached_file', true).'">'.$attachment->post_title.' (PDF)</a></span>';
+				$spot_downloads .= '<span class="download_link">→ <a href="'.$upload_dir['baseurl'].'/'.get_post_meta($attachment->ID, '_wp_attached_file', true).'">'.$attachment->post_title.' (PDF)</a></span>';
 			}
        	}
 	}?>
