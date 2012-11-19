@@ -130,10 +130,10 @@
 						<span class="title">MEDIA</span>
 						<span class="share">
 							<span class="title">Share</span>
-							<a target="_blank" href="http://www.facebook.com/brutelabs">
+							<a target="_blank" href="http://www.facebook.com/brutelabs" class="facebook">
 								<img src="http://3.brutelabs2.appspot.com/media/image/buttons/facebook_f_small.gif">
 							</a>
-							<a target="_blank" href="http://twitter.com/BRUTELABS">
+							<a target="_blank" href="http://twitter.com/brutelabs" class="twitter" title="Brute Labs is AWESOME!!! @hattery">
 								<img src="http://3.brutelabs2.appspot.com/media/image/buttons/twitter_t_small.gif">
 							</a>
 						</span>

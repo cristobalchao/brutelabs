@@ -69,7 +69,7 @@ nav#menu a {
 	color: #FFF;
 	position: relative;
 	font-family: "DIN-Light";
-	font-size: 0.7em;
+	font-size: 12px;
 	letter-spacing: 0.1em;
 }
 
@@ -753,6 +753,10 @@ li {
 	color: black;
 	margin-bottom: 5px;
 
+}
+
+.donate a {
+	color: #555555;
 }
 
 .buy_button {

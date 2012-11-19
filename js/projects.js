@@ -168,12 +168,31 @@ function hideSpotlight(){
 
 $(document).ready(function(){
 
+	//TWITTER
+	$('.share .twitter', this).bind('click', function(e){
+		e.preventDefault();
+		var loc = $(this).attr('href');
+		var title  = $(this).attr('title');
+		window.open('http://twitter.com/share?url=' + loc + '&text=' + title, 'twitterwindow', 'height=450, width=550, top='+($(window).height()/2 - 225) +', left='+$(window).width()/2 +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+	});
+
+	//FACEBOOK
+	$('.share .facebook', this).bind('click', function(e){
+		e.preventDefault();
+		var loc = $(this).attr('href');
+		var title  = $(this).attr('title');
+		window.open('https://www.facebook.com/sharer/sharer.php?u=http://brutelabs.org');
+	});
+
 	//DONATE
+	 $('.custom_value').val('');
+	 $("input[type=radio]").attr('checked',false);
+
 	 $("input[type=text].custom_value").live('keydown', currenciesOnly)
                              .live('blur', function () { $(this).formatCurrency(); });
 
     $('.custom_value').change(function() {
-      $(this).parent().children('input[id^="item_price_other"]').val(this.value);
+      $(this).parent().children('input[id^="item_price_other"]').val(this.value).attr('checked',true);
     });
 
     $('.donate_button img').click(function(){
