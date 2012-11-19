@@ -326,6 +326,14 @@ $(document).ready(function(){
 		$(this).parent('.element').children('.action').css({'opacity':1});
 	});
 
+	$('.large-image').mouseover(function(){
+		$(this).parent().parent().parent('.element').children('.spotlight-go').css({'opacity':.7});
+	});
+
+	$('.large-image').mouseout(function(){
+		$(this).parent().parent().parent('.element').children('.spotlight-go').css({'opacity':0});
+	});
+
 	// Outside the plugin
 	var $element = {
 		jqelement : $('.element'),

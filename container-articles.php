@@ -43,6 +43,8 @@
 			</a>
 			<img class="expand-proj" src="<?php echo get_template_directory_uri(); ?>/images/expand.png" />
 		</div>
+
+		<img class="spotlight-go" src="http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/48x48/br_down.png">
 	<div class="elem-descr">
 		<div class="elem-title"><?php echo get_the_title(); ?></div>
 		<div class="elem-content"><?php the_content(); ?></div>

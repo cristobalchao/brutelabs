@@ -779,6 +779,15 @@ li {
     padding: 0.5em 1em;
 }
 
+.spotlight-go {
+	position: absolute;
+	transform: rotate(180deg);
+	width: 30px;
+	top: 130px;
+	right: 15px;
+	opacity: 0;
+}
+
 .spotlight {
 	color: #909090;
 }
