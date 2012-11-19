@@ -696,19 +696,37 @@ li {
 	opacity:1;
 }
 
-#donate {
+.donate {
 	background-color: #26ABE2;
+}
+
+#donate-more {
+	display:none;
+}
+
+#donate-more #checkout_button {
+	padding-top: 15px;
+	text-align:center;
+}
+
+#donate {
 	height:135px;
 }
 
-#donate .box_title, #donate .content{
+.donate .box_title, .donate .content{
 	color: white;
 }
 
-#donate .content{
+#donate .content {
 	font-size: 0.8em;
 	margin-bottom: 1em;
 	padding: 0.2em 1.5em;
+}
+
+#donate-more .content {
+	font-size: 0.8em;
+	margin-bottom: 1em;
+	padding: 2.2em 1.5em;
 }
 
 #donate .donate_button {
@@ -933,6 +951,30 @@ li {
 	width: 100%;
 }
 
+input[type="radio"] {
+	display:none;
+}
+
+input[type="radio"] + label {
+	color:#f2f2f2;
+	font-family:Arial, sans-serif;
+	font-size:14px;
+}
+
+input[type="radio"] + label span {
+	display:inline-block;
+	width:19px;
+	height:19px;
+	margin:-1px 4px 0 0;
+	vertical-align:middle;
+	background:url(img/check_radio_sheet.png) -38px top no-repeat;
+	cursor:pointer;
+}
+
+input[type="radio"]:checked + label span {
+	background:url(img/check_radio_sheet.png) -57px top no-repeat;
+}
+	
 @font-face {
 	font-family: "DIN-Black";
 	font-style: normal;

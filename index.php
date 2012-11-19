@@ -85,17 +85,57 @@ get_header(); ?>
 			</ul>
 		</div>  
 	</div>
-	<div id="donate">
-		<div class="title_box">
-			<div class="box_title col_box">
-				<span>donate</span>
+	<div class="donate">
+		<div id="donate">
+			<div class="title_box">
+				<div class="box_title col_box">
+					<span>donate</span>
+				</div>
+			</div>
+			<div class="content">
+				Make a tax-deductible donation to BRUTE LABS and help make an impact right away.
+			</div>
+			<div class="donate_button">
+				<img src="http://3.brutelabs2.appspot.com/media/image/buttons/donate_+.gif" style="opacity:1">
 			</div>
 		</div>
-		<div class="content">
-			Make a tax-deductible donation to BRUTE LABS and help make an impact right away.
-		</div>
-		<div class="donate_button">
-			<img src="http://3.brutelabs2.appspot.com/media/image/buttons/donate_+.gif" style="opacity:1">
+		<div id="donate-more">
+			<div class="content">
+				<p> 
+					BRUTE LABS is a 100% volunteer-run organization. Your donation goes directly to our projects addressing hunger, homelessness, clean water, education, poverty, health, and gender equality, to name a few. <a href="<?php echo get_site_url(); ?>/category/projects">Browse our projects </a>to learn more about what we're working on today. 
+				</p>
+				<div class="clear"></div>
+				<form method="post" id="donate_form" action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/167836822673973"> 
+					<input name="item_name_1" type="hidden" value="Donation to BRUTE LABS"/>
+					<input name="item_description_1" type="hidden" value="Thank you for your tax-deductible donation to BRUTE LABS."/>
+					<input name="item_quantity_1" type="hidden" value="1"/>
+					<input name="item_currency_1" type="hidden" value="USD"/>
+					<input name="analyticsdata" type="hidden" value="">
+					<div id="checkout_form">
+					<div class="prices">
+						<input type="radio" name="item_price_1" id="item_price_1" value="10.00">
+						<label for="item_price_1"><span></span>10$</label></br>
+						<input type="radio" name="item_price_1" id="item_price_2" value="20.00">
+						<label for="item_price_2"><span></span>20$</label></br>
+						<input type="radio" name="item_price_1" id="item_price_3" value="50.00">
+						<label for="item_price_3"><span></span>50$</label></br>
+						<input type="radio" name="item_price_1" id="item_price_4" value="100.00">
+						<label for="item_price_4"><span></span>100$</label></br>
+						<input type="radio" name="item_price_1" id="item_price_5" value="200.00">
+						<label for="item_price_5"><span></span>200$</label></br>
+						<input type="radio" name="item_price_1" id="item_price_other" value="">
+						<label for="item_price_other"><span></span>Other: $</label> <input class="custom_value" type="text" style="width:60px;"/>
+					</div>
+					<div id="checkout_button">
+						<input type="image" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=167836822673973&amp;w=115&amp;h=50&amp;style=trans&amp;variant=text&amp;loc=en_US" alt="Donate">
+					</div>
+				</div>
+				</form>
+				<div class="clear"></div>
+				<p>
+					 BRUTE LABS is a 501(c)(3) tax-exempt organization. All donations are tax-deductible with secure processing provided by Google Checkout. Do you have a question about donating? <a target="_blank" href="mailto:info@brutelabs.org?subject=Brute Labs Content">Contact us.</a> 
+				</p>
+			</div>
 		</div>
 	</div>
 	<div id="brute_goods" class="bordered_box">
@@ -109,7 +149,7 @@ get_header(); ?>
 		</div>
 		<div class="brute_descr">
 			<div class="buy_button">
-				<a href="#" target="_blank">
+				<a href="http://welldone.org" target="_blank">
 					<img src="http://3.brutelabs2.appspot.com/media/image/buttons/more_+.gif" style="height:30px;margin-right:10px">
 				</a>
 			</div>
