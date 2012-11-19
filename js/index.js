@@ -254,6 +254,19 @@ $(document).ready(function(){
 
 	//$('#menu-main').attr('href',$('#menu-main').attr('href')+'#/main/');
 
+	var dynamic_col = $('#dynamic_col').position().top;
+	var stp = false;
+	$(document).scroll(function(){
+		if (!stp && $(document).scrollTop() > dynamic_col) {
+			$('#dynamic_col').css({'position':'fixed','top':'0'});
+			stp = true;
+		} else if (stp && $(document).scrollTop() < dynamic_col){
+			$('#dynamic_col').css({'position':'relative','top':'0'});
+			stp = false;
+		}
+	});
+
+
 	$('#anim').css({'width':'633px'});
 
 	//MENU PROJECTS
@@ -291,6 +304,10 @@ $(document).ready(function(){
 	});
 	var height = $("#submenu").height();
 	$("#anim").css({ height : height }).show();
+
+	var _height_anim = $("#anim").css('height');
+	$("#stay_connected").animate({height: _height_anim},1200);
+	
 	var _action = '.elem-image, .action';
 
 	$(_action).mouseover(function(){

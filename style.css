@@ -668,8 +668,12 @@ li {
 	color: #555555;
 }
 
-.right-col.bot-col > div {
+.right-col #dynamic_col > div {
 	margin-bottom: 10px;
+}
+
+#dynamic_col {
+	width: 310px;
 }
 
 .title_box{
@@ -677,15 +681,18 @@ li {
 	padding: 0.2em 0.5em;
 }
 
+#stay_connected {
+	min-height: 31px;
+}
+
 #stay_connected #stay_connected_list {
-	height: 50px;
 	width: 18em;
 	padding: 0px 18px;
 }
 
 #stay_connected #stay_connected_list ul li {
 	float: left;
-	margin: 5px 4px;
+	margin: -3px 6px 0 0;
 }
 
 #stay_connected #stay_connected_list img,#rss_feed img, #donate .donate_button img,.buy_button {
