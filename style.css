@@ -668,7 +668,9 @@ li {
 	color: #555555;
 }
 
-.right-col #dynamic_col > div {
+
+
+.right-col.bot-col > div, .right-col #dynamic_col > div {
 	margin-bottom: 10px;
 }
 
@@ -682,7 +684,7 @@ li {
 }
 
 #stay_connected {
-	min-height: 31px;
+	min-height: 77px;
 }
 
 #stay_connected #stay_connected_list {
