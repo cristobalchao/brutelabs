@@ -36,7 +36,6 @@ header {
 }
 
 #anim{
-	height: 0;	
 	margin-bottom: 10px;
 	height:77px;
 }
@@ -322,7 +321,7 @@ nav#submenu .elem:hover {
 	display: block;
 	font-size: 0.9em;
 	line-height: 1.35em;
-	padding: 0.5em;
+	padding: 0.5em 8px;
 	position: relative;
 	text-transform: uppercase;
 	margin: 12px -8px 0;
@@ -357,7 +356,7 @@ nav#submenu .elem:hover {
 
 .efooter {
 	font-size: 0.8em;
-	padding: 13px 0.5em 1.75em;
+	padding: 13px 0em 1.75em;
 	color: #909090;
 }
 
@@ -495,7 +494,7 @@ footer {
 
 footer #copyright {
 	font-size: 14px;
-	margin-left: 20px;
+	margin-left: 70px;
 	color: #909090;
 }
 
@@ -742,6 +741,17 @@ li {
 	font-size: 0.8em;
 	margin-bottom: 1em;
 	padding: 2.2em 1.5em;
+	position: relative;
+}
+
+#donate-more .content .collapse_button {
+	position:absolute;
+	right:20px;
+	top:10px;
+}
+
+#donate-more .content .collapse_button {
+	cursor: pointer;
 }
 
 #donate .donate_button {
@@ -771,7 +781,7 @@ li {
 }
 
 .donate a {
-	color: #555555;
+	color: black;
 	text-decoration: underline;
 }
 

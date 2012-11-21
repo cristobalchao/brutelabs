@@ -190,7 +190,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		var loc = $(this).attr('href');
 		var title  = $(this).attr('title');
-		window.open('https://www.facebook.com/sharer/sharer.php?u=http://brutelabs.org');
+		window.open('https://www.facebook.com/sharer/sharer.php?u=http://brutelabs.org/'+title);
 	});
 
 	//DONATE
@@ -209,10 +209,24 @@ $(document).ready(function(){
 		$(this).parent().parent().parent().children('#donate-more').slideDown();
     });
 
-    
+    $('#donate-more .collapse_button').click(function(){
+    	$(this).parent().parent().animate({ height: 'toggle', opacity: 'toggle' }, 800);
+		$(this).parent().parent().parent().children('#donate').slideDown();
+    });
 
 	//SPOTLIGHT
 	$('.go-spot').unbind('click').click('click',function(){
+		if(history.pushState && history.replaceState) {
+			var _tit = $(this).attr('title');
+			var _id = $(this).attr('spot_id');
+			history.pushState({"id":_id}, _tit, "/"+_tit);
+			activeSpotlight(_id);
+			return false;
+		}
+	});
+
+	$('.go_spot').live('click',function(){
+		console.log($(this).attr('title'));
 		if(history.pushState && history.replaceState) {
 			var _tit = $(this).attr('title');
 			var _id = $(this).attr('spot_id');
@@ -233,7 +247,7 @@ $(document).ready(function(){
 	});
 
 	if(history.pushState && history.replaceState) {
-		_project = unescape(location.pathname.split('/')[1]).toLowerCase();
+		_project = unescape(location.pathname.split('/')[location.pathname.split('/').length-1]).toLowerCase();
 		$('.go-spot').each(function(){
 			if (_project == $(this).attr('title').toLowerCase()){
 				var _tit = $(this).attr('title');
@@ -399,9 +413,10 @@ $(document).ready(function(){
 	//Custom function which use the fadeElements function to make the changes
 	function switchProjects(newElem) {
 		newElem.children('.mark_project_image').children('.go_spot').children('.featured_project_image').attr('src',$('article[data-id="'+arr[cnt]+'"] .large-image',$container).attr('src'));
-		var url_spotlight = '#/spotlight/'+$('article[data-id="'+arr[cnt]+'"]').attr('id').split('-')[1];
-		$('.go_spot').attr('href',url_spotlight);
+		var id_spot = $('article[data-id="'+arr[cnt]+'"]').attr('id').split('-')[1];
+		var url_spotlight = '#/spotlight/'+id_spot;
 		var ftitle = $('article[data-id="'+arr[cnt]+'"] .elem-title',$container).html();
+		newElem.children('.mark_project_image').children('.go_spot').attr('href',url_spotlight).attr('spot_id',id_spot).attr('title',ftitle);
 		var fcontent = $('article[data-id="'+arr[cnt]+'"] .elem-content',$container).html();
 		newElem.children('.featured_project_description').children('.feature_project_name').html(ftitle);
 		var tot = 290-ftitle.length;
@@ -419,9 +434,9 @@ $(document).ready(function(){
 		$clone.children('.mark_project_image').children('.go_spot').children('.featured_project_image').css({'background-image':url_img});
 		var ftitle = $('article[data-id="'+arr[cnt]+'"] .elem-title',$container).html();
 		var fcontent = $('article[data-id="'+arr[cnt]+'"] .elem-content',$container).html();
-		var url_spotlight = '#/spotlight/'+$('article[data-id="'+arr[cnt]+'"]').attr('id').split('-')[1];	
-		$clone.children('.mark_project_image').children('.go_spot').attr('href',url_spotlight);
-		$('.go_spot').attr('href',url_spotlight);
+		var id_spot = $('article[data-id="'+arr[cnt]+'"]').attr('id').split('-')[1];
+		var url_spotlight = '#/spotlight/'+id_spot;
+		$clone.children('.mark_project_image').children('.go_spot').attr('href',url_spotlight).attr('spot_id',id_spot).attr('title',ftitle);
 		$clone.children('.featured_project_description').children('.feature_project_name').html(ftitle);
 		$clone.children('.featured_project_description').children('.feature_project_text').html(fcontent);
 

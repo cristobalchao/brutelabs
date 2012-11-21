@@ -10,15 +10,15 @@
  */
 ?>
 	<footer>
-		<span>
+		<span style="position:relative">
 			<a href="http://www.facebook.com/brutelabs" target="_blank">
-				<img src="http://3.brutelabs2.appspot.com/media/image/buttons/facebook_f_small.gif">
+				<img src="http://3.brutelabs2.appspot.com/media/image/buttons/facebook_f_small.gif" style="position: absolute; top: 1px;">
 			</a>
 			<a href="http://twitter.com/BRUTELABS" target="_blank">
-				<img src="http://3.brutelabs2.appspot.com/media/image/buttons/twitter_t_small.gif">
+				<img src="http://3.brutelabs2.appspot.com/media/image/buttons/twitter_t_small.gif" style="position: absolute; top: 1px; left:20px">
 			</a>	
 			<a href="mailto:info@brutelabs.org" target="_blank">
-				<img src="http://3.brutelabs2.appspot.com/media/image/buttons/email_small.gif">
+				<img src="http://3.brutelabs2.appspot.com/media/image/buttons/email_small.gif" style="position: absolute; top: 1px; left:40px">
 			</a>
 		</span>
 		<span id="copyright">Copyright &copy; 2012 Brute Labs.  All Rights Reserved.  Interested in using this content?  <a href="mailto:info@brutelabs.org?subject=Brute Labs Content" target="_blank">Contact us.</a>

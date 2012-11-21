@@ -126,6 +126,8 @@ function activeSlider(slide_id){
 		}]
 	});
 
+	$('.slider > div').css({'left':0});
+
 	$("#slider_"+slide_id+' .item').live('click',function(){
 		if(!$('#image_selected_'+slide_id).is(':animated')) {
 			$("#slider_"+slide_id+" .item").removeClass('active');
@@ -198,6 +200,11 @@ $(document).ready(function(){
     $('.donate_button img').click(function(){
     	$(this).parent().parent().animate({ height: 'toggle', opacity: 'toggle' }, 800);
 		$(this).parent().parent().parent().children('#donate-more').slideDown();
+    });
+
+    $('#donate-more .collapse_button').click(function(){
+    	$(this).parent().parent().animate({ height: 'toggle', opacity: 'toggle' }, 800);
+		$(this).parent().parent().parent().children('#donate').slideDown();
     });
 
 	$('.more_button').unbind('click').click(function(){

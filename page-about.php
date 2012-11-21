@@ -9,7 +9,7 @@ Template Name: About page template
 get_header(); ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/about.js" type="text/javascript"></script>
 <style>
-#anim{
+#animenu{
 	font-family: "DIN-Regular",helvetica,arial,sans-serif;
 }
 
@@ -305,7 +305,7 @@ nav#submenu .sbmstitle.active:after {
 }
 </style>
 
-<div id="anim">
+<div id="animenu">
 	<nav id="submenu">
 		<div class="smelem">
 			<div id="ab-vision" class="sbmstitle active" section="vision">VISION</div>
@@ -313,7 +313,6 @@ nav#submenu .sbmstitle.active:after {
 		</div>
 	</nav>
 </div>
-<div style="clear:both; width: 100%; height: 53px;"></div>
 <div id="main-vision" class="about-section">
 	<div id="banner" class="banner">
 		<div>

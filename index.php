@@ -19,7 +19,7 @@ get_header(); ?>
 		<ul>
 			<li class="featured_project">
 				<div class="mark_project_image">
-					<a class="go_spot" href="#">
+					<a href="#" spot_id="" title="" class="go_spot">
 						<div class="featured_project_image"> </div>
 					</a>
 				</div>
@@ -102,8 +102,11 @@ get_header(); ?>
 			</div>
 			<div id="donate-more">
 				<div class="content">
+					<div class="collapse_button">
+						<img src="http://localhost:8888/wp-content/themes/brutelabs/images/minimize-white.png">
+					</div>
 					<p> 
-						BRUTE LABS is a 100% volunteer-run organization. Your donation goes directly to our projects addressing hunger, homelessness, clean water, education, poverty, health, and gender equality, to name a few. <a href="<?php echo get_site_url(); ?>/category/projects">Browse our projects </a>to learn more about what we're working on today. 
+						BRUTE LABS is a 100% volunteer-run organization. Your donation goes directly to our projects addressing hunger, homelessness, clean water, education, poverty, health, and gender equality, to name a few. <a href="<?php echo get_site_url(); ?>/category/projects">Browse our projects</a> to learn more about what we're working on today. 
 					</p>
 					<div class="clear"></div>
 					<form method="post" id="donate_form" action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/167836822673973"> 
@@ -117,9 +120,10 @@ get_header(); ?>
 								<li>
 									<input type="radio" name="item_price_1" id="item_price_1" value="10.00">
 									<label for="item_price_1"><span></span>10$</label></br>
-								</li>>
+								</li>
 
-								<li									<input type="radio" name="item_price_1" id="item_price_2" value="20.00">
+								<li>
+									<input type="radio" name="item_price_1" id="item_price_2" value="20.00">
 									<label for="item_price_2"><span></span>20$</label></br>
 								</li>
 								<li>

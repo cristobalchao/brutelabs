@@ -43,8 +43,6 @@
 			</a>
 			<img class="expand-proj" src="<?php echo get_template_directory_uri(); ?>/images/expand.png" />
 		</div>
-
-		<img class="spotlight-go" src="http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/48x48/br_down.png">
 	<div class="elem-descr">
 		<div class="elem-title"><?php echo get_the_title(); ?></div>
 		<div class="elem-content"><?php the_content(); ?></div>
@@ -132,10 +130,10 @@
 						<span class="title">MEDIA</span>
 						<span class="share">
 							<span class="title">Share</span>
-							<a target="_blank" href="http://www.facebook.com/brutelabs" class="facebook">
+							<a target="_blank" href="http://www.facebook.com/brutelabs/" title="<?php echo get_the_title(); ?>" class="facebook">
 								<img src="http://3.brutelabs2.appspot.com/media/image/buttons/facebook_f_small.gif">
 							</a>
-							<a target="_blank" href="http://twitter.com/brutelabs" class="twitter" title="Brute Labs is AWESOME!!! @hattery">
+							<a target="_blank" href="http://twitter.com/brutelabs" class="twitter" title="Brute Labs is <?php the_field('large_banner'); ?> @brutelabs">
 								<img src="http://3.brutelabs2.appspot.com/media/image/buttons/twitter_t_small.gif">
 							</a>
 						</span>
@@ -158,7 +156,7 @@
 					<div>
 						<?php the_content(); ?>
 					</div>
-				</div>
+				</div>				
 				<div class="donate">
 					<div id="donate">
 						<div class="title_box">
@@ -175,8 +173,11 @@
 					</div>
 					<div id="donate-more">
 						<div class="content">
+							<div class="collapse_button">
+								<img src="http://localhost:8888/wp-content/themes/brutelabs/images/minimize-white.png">
+							</div>
 							<p> 
-								BRUTE LABS is a 100% volunteer-run organization. Your donation goes directly to our projects addressing hunger, homelessness, clean water, education, poverty, health, and gender equality, to name a few. <a href="<?php echo get_site_url(); ?>/category/projects">Browse our projects </a>to learn more about what we're working on today. 
+								BRUTE LABS is a 100% volunteer-run organization. Your donation goes directly to our projects addressing hunger, homelessness, clean water, education, poverty, health, and gender equality, to name a few. <a href="<?php echo get_site_url(); ?>/category/projects">Browse our projects</a> to learn more about what we're working on today. 
 							</p>
 							<div class="clear"></div>
 							<form method="post" id="donate_form" action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/167836822673973"> 
