@@ -113,20 +113,32 @@ get_header(); ?>
 						<input name="item_currency_1" type="hidden" value="USD"/>
 						<input name="analyticsdata" type="hidden" value="">
 						<div id="checkout_form">
-							<div class="prices">
-								<input type="radio" name="item_price_1" id="item_price_1" value="10.00">
-								<label for="item_price_1"><span></span>10$</label></br>
-								<input type="radio" name="item_price_1" id="item_price_2" value="20.00">
-								<label for="item_price_2"><span></span>20$</label></br>
-								<input type="radio" name="item_price_1" id="item_price_3" value="50.00">
-								<label for="item_price_3"><span></span>50$</label></br>
-								<input type="radio" name="item_price_1" id="item_price_4" value="100.00">
-								<label for="item_price_4"><span></span>100$</label></br>
-								<input type="radio" name="item_price_1" id="item_price_5" value="200.00">
-								<label for="item_price_5"><span></span>200$</label></br>
-								<input type="radio" name="item_price_1" id="item_price_other" value="">
-								<label for="item_price_other"><span></span>Other: $</label> <input class="custom_value" type="text" style="width:60px;"/>
-							</div>
+							<ul class="prices">
+								<li>
+									<input type="radio" name="item_price_1" id="item_price_1" value="10.00">
+									<label for="item_price_1"><span></span>10$</label></br>
+								</li>>
+
+								<li									<input type="radio" name="item_price_1" id="item_price_2" value="20.00">
+									<label for="item_price_2"><span></span>20$</label></br>
+								</li>
+								<li>
+									<input type="radio" name="item_price_1" id="item_price_3" value="50.00">
+									<label for="item_price_3"><span></span>50$</label></br>
+								</li>
+								<li>
+									<input type="radio" name="item_price_1" id="item_price_4" value="100.00">
+									<label for="item_price_4"><span></span>100$</label></br>
+								</li>
+								<li>
+									<input type="radio" name="item_price_1" id="item_price_5" value="200.00">
+									<label for="item_price_5"><span></span>200$</label></br>
+								</li>
+								<li>
+									<input type="radio" name="item_price_1" id="item_price_other" value="">
+									<label for="item_price_other"><span></span>Other: $</label> <input class="custom_value" type="text" style="width:60px;"/>
+								</li>
+							</ul>
 							<div id="checkout_button">
 								<input type="image" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=167836822673973&amp;w=115&amp;h=50&amp;style=trans&amp;variant=text&amp;loc=en_US" alt="Donate">
 							</div>
@@ -139,10 +151,10 @@ get_header(); ?>
 				</div>
 			</div>
 		</div>
-		<div id="brute_goods" class="bordered_box">
+		<div id="brute_partners" class="bordered_box">
 			<div class="bordered_title_box">
 				<div class="box_title col_box">
-					<span>brute goods</span>
+					<span>brute partnerships</span>
 				</div>
 			</div>
 			<div class="content">
@@ -154,8 +166,8 @@ get_header(); ?>
 						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/more_+.gif" style="height:30px;margin-right:10px">
 					</a>
 				</div>
-				<p class="title"> Water is Life Tshirt $18.00 </p>
-				<p> Support Well Done.</p>
+				<p class="title"></p>
+				<p> Learn more about WellDone by clicking more</p>
 			</div>
 		</div>
 	</div>

@@ -37,6 +37,8 @@ header {
 
 #anim{
 	height: 0;	
+	margin-bottom: 10px;
+	height:77px;
 }
 
 nav#menu {
@@ -146,6 +148,10 @@ nav#submenu .sbmcontent a:hover, nav#submenu .sbmcontent a.active, nav#submenu .
 	color: #000;
 }
 
+nav#filter a:hover {
+	text-decoration: underline;
+}
+
 nav#submenu .elem {
 	float: left;
 	list-style: none;
@@ -169,7 +175,6 @@ nav#submenu .elem:hover {
 
 #container {
 	position: relative;
-	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
 	width: 976px;
@@ -190,7 +195,7 @@ nav#submenu .elem:hover {
 	background-color: white;
 	border: 1px solid #D8D8D8;
 	float: left;
-	height: 560px;
+	height: 550px;
 	width: 295px;
 	margin-bottom: 10px;
 	padding: 8px;
@@ -217,7 +222,7 @@ nav#submenu .elem:hover {
 
 .element.large {
 	width: 620px;
-	height: 560px;
+	height: 550px;
 	z-index: 100;
 }
 
@@ -291,7 +296,7 @@ nav#submenu .elem:hover {
 .elem-descr {
 	font-size: 13px;
 	font-weight: lighter;
-	height: 15em;
+	height: 208px;
 	line-height: 19px;
 	margin: 0.5em 0;
 	overflow: hidden;
@@ -320,7 +325,7 @@ nav#submenu .elem:hover {
 	padding: 0.5em;
 	position: relative;
 	text-transform: uppercase;
-	margin: -8px;
+	margin: 12px -8px 0;
 }
 
 .action .action-title {
@@ -352,7 +357,7 @@ nav#submenu .elem:hover {
 
 .efooter {
 	font-size: 0.8em;
-	padding: 1.5em 0.5em 0.75em;
+	padding: 13px 0.5em 1.75em;
 	color: #909090;
 }
 
@@ -372,11 +377,13 @@ nav#submenu .elem:hover {
 
 .efooter .eupdated {
 	line-height: 1.5em;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
+	padding-left: 8px;
 }
 
-.efooter .eTags {
+.efooter .etags {
 	line-height: 1.5em;
+	padding-left: 8px;
 }
 
 .efooter.large {
@@ -471,7 +478,8 @@ nav#submenu .elem:hover {
 .more_button {
 	display: none;
 	float: right;
-	margin-top: -10px;
+	margin-top: -17px;
+	margin-right: 10px;
 }
 
 .more_button.large {
@@ -660,15 +668,17 @@ li {
 	display: block;
 }
 
-.update_text a:visited, a:link, a:active, a:focus, a:hover {
+.update_text a:visited,.update_text a:link,.update_text a:active,.update_text a:focus, a:hover {
 	color: #555555;
+}
+
+.update_text a:hover {
+	text-decoration: underline;
 }
 
 .update_time {
 	color: #555555;
 }
-
-
 
 .right-col.bot-col > div, .right-col #dynamic_col > div {
 	margin-bottom: 10px;
@@ -683,13 +693,10 @@ li {
 	padding: 0.2em 0.5em;
 }
 
-#stay_connected {
-	min-height: 77px;
-}
-
 #stay_connected #stay_connected_list {
 	width: 18em;
-	padding: 0px 18px;
+	padding: 2px 18px;
+	height: 35px;
 }
 
 #stay_connected #stay_connected_list ul li {
@@ -715,7 +722,6 @@ li {
 
 #donate-more #checkout_button {
 	padding-top: 15px;
-	text-align:center;
 }
 
 #donate {
@@ -747,17 +753,17 @@ li {
 	cursor: pointer;
 }
 
-#brute_goods .content img{
+#brute_partners .content img{
 	width: 100%;
 }
 
-#brute_goods .brute_descr{
+#brute_partners .brute_descr{
 	font-size: 0.8em;
 	color: gray;
 	padding: 10px 10px 10px 20px;
 }
 
-#brute_goods .brute_descr .title{
+#brute_partners .brute_descr .title{
 	font-weight: bold;
 	color: black;
 	margin-bottom: 5px;
@@ -766,6 +772,7 @@ li {
 
 .donate a {
 	color: #555555;
+	text-decoration: underline;
 }
 
 .buy_button {
@@ -849,6 +856,14 @@ li {
 
 #downloads .download_link {
 	margin:0 20px;
+}
+
+#downloads .download_link a {
+	color: #000;
+}
+
+#downloads .download_link a:hover {
+	text-decoration: underline;
 }
 
 #project_details_body #sidebar {
@@ -973,6 +988,10 @@ li {
 	width: 100%;
 }
 
+.prices li {
+	margin: 5px 0;
+}
+
 input[type="radio"] {
 	display:none;
 }
@@ -989,12 +1008,12 @@ input[type="radio"] + label span {
 	height:19px;
 	margin:-1px 4px 0 0;
 	vertical-align:middle;
-	background:url(img/check_radio_sheet.png) -38px top no-repeat;
+	background:url(img/donate_radio.png) 0 top no-repeat;
 	cursor:pointer;
 }
 
 input[type="radio"]:checked + label span {
-	background:url(img/check_radio_sheet.png) -57px top no-repeat;
+	background:url(img/donate_radio.png) -19px top no-repeat;
 }
 	
 @font-face {

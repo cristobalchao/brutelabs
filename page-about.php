@@ -185,13 +185,14 @@ nav#submenu .sbmstitle.active:after {
 }
 
 .loading {
-	background-image: url("http://www.seoamplified.com/images/loading.gif");
+	background-image: url("http://dynatree.googlecode.com/svn-history/r433/trunk/src/skin-xp/loading.gif");
 	position: absolute;
 	background-repeat: no-repeat;
 	float: right;
-	height: 32px;
-	width: 32px;
-	margin: auto 304px;
+	height: 15px;
+	width: 15px;
+	top: 15px;
+	right: 15px;
 	display:none;
 }
 

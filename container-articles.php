@@ -38,7 +38,7 @@
 			<?  $small_image = get_field('small_image');
 			$large_image = get_field('large_image'); ?>
 			<div class="small-image" style="background-image:url('<?php echo $small_image['url']; ?>')"></div>
-			<a href="#/spotlight/<?php the_ID(); ?>">
+			<a href="#/spotlight/<?php the_ID(); ?>" spot_id="<?php the_ID(); ?>" title="<?php echo get_the_title(); ?>" class="go-spot">
 				<div class="large-image" style="background-image:url('<?php echo $large_image['url']; ?>')"></div>
 			</a>
 			<img class="expand-proj" src="<?php echo get_template_directory_uri(); ?>/images/expand.png" />
@@ -64,7 +64,7 @@
 			<div class="efoot-content"><?php echo $tag_name;?></div>
 		</div>
 		<div class="more_button" spotlight="<?php the_ID(); ?>">
-			<a href="#/spotlight/<?php the_ID(); ?>">
+			<a href="#/spotlight/<?php the_ID(); ?>" spot_id="<?php the_ID(); ?>" title="<?php echo get_the_title(); ?>" class="go-spot">
 				<img src="http://3.brutelabs2.appspot.com/media/image/buttons/more_+.gif">
 			</a>
 		</div>
@@ -108,7 +108,7 @@
 				<span id="tags" class="project_info"><?php echo $tag_name;?></span>
 			</div>
 			<div class="spotlight_back">
-				<a class="back" href="#"><img src="http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/48x48/br_down.png" /></a>
+				<a class="back" href="#" spot_id="<?php the_ID(); ?>"><img src="http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/48x48/br_down.png" /></a>
 			</div>
 		</div>
 		<div class="banner" style="opacity: 1;display:block">

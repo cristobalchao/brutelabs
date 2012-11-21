@@ -21,7 +21,7 @@
 				<img src="http://3.brutelabs2.appspot.com/media/image/buttons/email_small.gif">
 			</a>
 		</span>
-		<span id="copyright">Copyright &copy; 2011 Brute Labs.  All Rights Reserved.  Interested in using this content?  <a href="mailto:info@brutelabs.org?subject=Brute Labs Content" target="_blank">Contact us.</a>
+		<span id="copyright">Copyright &copy; 2012 Brute Labs.  All Rights Reserved.  Interested in using this content?  <a href="mailto:info@brutelabs.org?subject=Brute Labs Content" target="_blank">Contact us.</a>
 		</span>
 	</footer>
 </div><!-- #wapper -->
