@@ -229,7 +229,6 @@ $(document).ready(function(){
 	});
 
 	$('.go_spot').live('click',function(){
-		console.log($(this).attr('title'));
 		if(history.pushState && history.replaceState) {
 			var _tit = $(this).attr('title');
 			var _id = $(this).attr('spot_id');

@@ -27,7 +27,8 @@ $(document).ready(function(){
 		if (!$(this).hasClass('active')){
 			var section = $(this).attr('section');
 
-			($(this).attr('id') =='ab-vision')?_timer = window.setInterval(timer, 5000):null;
+			(section =='vision')?_timer = window.setInterval(timer, 5000):null;
+			
 			$('.about-section').animate({ height: 'toggle', opacity: 'toggle' }, 800);
 			$('#main-'+section).slideDown();
 

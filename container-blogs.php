@@ -8,7 +8,7 @@
  */
 ?>
 
-<div class="blog_entry">
+<div class="blog_entry" date="<?php the_time('Y/m'); ?>">
 	<div class="blog_entry_header">
 		<div class="blog_entry_title">
 			<a href="#"><?php the_title(); ?></a>
