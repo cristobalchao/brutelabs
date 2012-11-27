@@ -18,7 +18,9 @@ get_header(); ?>
 }
 
 #submenu .smelem{
+	height: 25px;
 	padding:10px;
+	position: relative;
 }
 
 .sbmstitle{
@@ -33,35 +35,50 @@ get_header(); ?>
 }
 
 .sbmstitle:hover:after{
-	border-bottom-colors: none;
-	border-left-colors: none;
-	border-right-colors: none;
-	border-top-colors: none;
-	border-color: #FFFFFF #FFFFFF #F1F1F1;
-	border-image: none;
-	border-style: solid;
-	border-width: 10px;
+	border-bottom: 10px solid #F1F1F1;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
 	content: "";
-	display: block;
-	position: relative;
-	right: -20px;
-	top: -4px;
+	position: absolute;
+	bottom: -1px;
+	z-index: 9999;
 }
 
 nav#submenu .sbmstitle.active:after {
-	border-bottom-colors: none;
-	border-left-colors: none;
-	border-right-colors: none;
-	border-top-colors: none;
-	border-color: #FFFFFF #FFFFFF #F1F1F1;
-	border-image: none;
-	border-style: solid;
-	border-width: 10px;
+	border-bottom: 10px solid #F1F1F1;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
 	content: "";
-	display: block;
-	position: relative;
-	right: -20px;
-	top: -4px;
+	position: absolute;
+	bottom: -1px;
+	z-index: 9999;
+}
+
+.arrow-down-border {
+	border-bottom: 11px solid #D8D8D8;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    bottom: 0;
+    height: 0;
+    position: absolute;
+    width: 0;
+    opacity: 0;
+}
+
+#ab-vision .sbmstitle:hover:after, #ab-vision .sbmstitle.active:after {
+	left: 55px;
+}
+
+#ab-people .sbmstitle:hover:after, #ab-people .sbmstitle.active:after {
+	left: 135px;
+}
+
+#ab-vision .arrow-down-border {
+	left: 54px;
+}
+
+#ab-people .arrow-down-border {
+	left: 134px;
 }
 
 .banner{
@@ -308,8 +325,14 @@ nav#submenu .sbmstitle.active:after {
 <div id="animenu">
 	<nav id="submenu">
 		<div class="smelem">
-			<div id="ab-vision" class="sbmstitle active" section="vision">VISION</div>
-			<div id="ab-people" class="sbmstitle" section="people">PEOPLE</div>
+			<div id="ab-vision">
+				<div class="arrow-down-border"></div>
+				<div class="sbmstitle active" section="vision">VISION</div>
+			</div>
+			<div id="ab-people">
+				<div class="arrow-down-border"></div>
+				<div class="sbmstitle" section="people">PEOPLE</div>
+			</div>
 		</div>
 	</nav>
 </div>

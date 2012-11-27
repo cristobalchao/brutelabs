@@ -728,7 +728,6 @@ add_action( 'wp_ajax_get_ajax_posts', 'get_ajax_posts' );
 add_action( 'wp_ajax_nopriv_get_ajax_posts', 'get_ajax_posts' );
 
 function get_ajax_posts(){
-
 	if ($_REQUEST['year'] != '') {
 		function filter_where($where = '') {
 			(!$_REQUEST['month'])?$ajax_month = '01':$ajax_month = $_REQUEST['month'];

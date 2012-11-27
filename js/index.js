@@ -214,6 +214,9 @@ $(document).ready(function(){
 		$(this).parent().parent().parent().children('#donate').slideDown();
     });
 
+    //BACKGROUND IMAGES
+    $('.go-spot[spot_id="126"] .large-image').css({'background-position':'0 -152px'});
+
 	//SPOTLIGHT
 	$('.go-spot').unbind('click').click('click',function(){
 		if(history.pushState && history.replaceState) {
@@ -414,6 +417,8 @@ $(document).ready(function(){
 	function switchProjects(newElem) {
 		newElem.children('.mark_project_image').children('.go_spot').children('.featured_project_image').attr('src',$('article[data-id="'+arr[cnt]+'"] .large-image',$container).attr('src'));
 		var id_spot = $('article[data-id="'+arr[cnt]+'"]').attr('id').split('-')[1];
+		newElem.children('.mark_project_image').children('.go_spot').children('.featured_project_image').css({'background-position':'0% 0%'});
+		(id_spot == "126")?newElem.children('.mark_project_image').children('.go_spot').children('.featured_project_image').css({'background-position':'0 -120px'}):null;
 		var url_spotlight = '#/spotlight/'+id_spot;
 		var ftitle = $('article[data-id="'+arr[cnt]+'"] .elem-title',$container).html();
 		newElem.children('.mark_project_image').children('.go_spot').attr('href',url_spotlight).attr('spot_id',id_spot).attr('title',ftitle);
@@ -422,6 +427,8 @@ $(document).ready(function(){
 		var tot = 290-ftitle.length;
 		(fcontent.length > tot)?st = fcontent.substr(0,tot)+'...':st = fcontent.substr(0,tot);
 		newElem.children('.featured_project_description').children('.feature_project_text').html(st);
+
+
 	}
 
 	//Elements must be declared with fixed/absolute position
@@ -435,6 +442,8 @@ $(document).ready(function(){
 		var ftitle = $('article[data-id="'+arr[cnt]+'"] .elem-title',$container).html();
 		var fcontent = $('article[data-id="'+arr[cnt]+'"] .elem-content',$container).html();
 		var id_spot = $('article[data-id="'+arr[cnt]+'"]').attr('id').split('-')[1];
+		$clone.children('.mark_project_image').children('.go_spot').children('.featured_project_image').css({'background-position':'0% 0%'});
+		(id_spot == "126")?$clone.children('.mark_project_image').children('.go_spot').children('.featured_project_image').css({'background-position':'0 -120px'}):null;
 		var url_spotlight = '#/spotlight/'+id_spot;
 		$clone.children('.mark_project_image').children('.go_spot').attr('href',url_spotlight).attr('spot_id',id_spot).attr('title',ftitle);
 		$clone.children('.featured_project_description').children('.feature_project_name').html(ftitle);

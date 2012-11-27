@@ -318,6 +318,9 @@ $(document).ready(function(){
 		});
 	}
 
+	//BACKGROUND IMAGES
+    $('.go-spot[spot_id="126"] .large-image').css({'background-position':'0 -152px'});
+
 	/*
 	var stp_resize = false;
 

@@ -289,7 +289,6 @@ nav#submenu .elem:hover {
 	color: #000;
 	font-weight: bold;
 	font-size: 13px;
-	text-transform:uppercase;
 }
 
 .elem-descr {
@@ -313,6 +312,22 @@ nav#submenu .elem:hover {
 	color: #909090;
 	height: auto;
 	height: 115px;
+}
+
+.water-link {
+	color:#26ABE2 !important;
+}
+
+.popen-link {
+	color:#BFAF8D !important;
+}
+
+.cotton-link {
+	color:#4B2613 !important;
+}
+
+.water-link:hover, .popen-link:hover, .cotton-link:hover  {
+	text-decoration: underline !important;
 }
 
 .action {
@@ -409,6 +424,7 @@ nav#submenu .elem:hover {
 .box_title .title_text {
 	float: left;
 	margin: 0 8px;
+	text-transform: none;
 }
 
 .box_title .collapse_button {
@@ -781,7 +797,7 @@ li {
 }
 
 .donate a {
-	color: black;
+	color: white;
 	text-decoration: underline;
 }
 

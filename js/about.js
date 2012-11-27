@@ -10,10 +10,22 @@ $(document).ready(function(){
 		}
 	});*/
 
+	function refreshSubMenu() {
+		($('#ab-vision').children('.sbmstitle').hasClass('active'))?$('#ab-vision').children('.arrow-down-border').css({'opacity':1}):$('#ab-vision').children('.arrow-down-border').css({'opacity':0});
+		($('#ab-people').children('.sbmstitle').hasClass('active'))?$('#ab-people').children('.arrow-down-border').css({'opacity':1}):$('#ab-people').children('.arrow-down-border').css({'opacity':0});
+	}
+
+	$('.smelem > div').mouseover(function(){
+		(!$(this).children('.sbmstitle').hasClass('active'))?$(this).children('.arrow-down-border').css({'opacity':1}):null;
+	});
+
+	$('.smelem > div').mouseout(function(){
+		(!$(this).children('.sbmstitle').hasClass('active'))?$(this).children('.arrow-down-border').css({'opacity':0}):null;
+	});
+
 	$('.sbmstitle').click(function(){
 		if (!$(this).hasClass('active')){
 			var section = $(this).attr('section');
-
 
 			($(this).attr('id') =='ab-vision')?_timer = window.setInterval(timer, 5000):null;
 			$('.about-section').animate({ height: 'toggle', opacity: 'toggle' }, 800);
@@ -21,6 +33,7 @@ $(document).ready(function(){
 
 			$('.sbmstitle').removeClass('active');
 			$(this).addClass('active');
+			refreshSubMenu();
 		}
 	});
 	
@@ -137,4 +150,6 @@ $(document).ready(function(){
 	arr = shuffle(arr);
 
 	timer();
+
+	refreshSubMenu();
 });

@@ -174,7 +174,7 @@
 					<div id="donate-more">
 						<div class="content">
 							<div class="collapse_button">
-								<img src="http://localhost:8888/wp-content/themes/brutelabs/images/minimize-white.png">
+								<img src="<?php echo get_template_directory_uri(); ?>/images/minimize-white.png">
 							</div>
 							<p> 
 								BRUTE LABS is a 100% volunteer-run organization. Your donation goes directly to our projects addressing hunger, homelessness, clean water, education, poverty, health, and gender equality, to name a few. <a href="<?php echo get_site_url(); ?>/category/projects">Browse our projects</a> to learn more about what we're working on today. 
