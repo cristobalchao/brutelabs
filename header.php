@@ -43,6 +43,7 @@
 	 */
 	wp_head();
 ?>
+
 <script src="<?php echo get_template_directory_uri(); ?>/js/kaotope.js" type="text/javascript"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/twitter.js" type="text/javascript"></script>
 </head>
