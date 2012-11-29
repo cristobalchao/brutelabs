@@ -1,65 +1,358 @@
+
 <?php
-/** 
- * The template used to display Tag Archive pages
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
+/**
  */
-
 get_header(); ?>
+<style>
+.blog_entries{
+	width:625px;
+	float:left;
+}
 
-		<section id="primary">
-			<div id="content" role="main">
+.bordered_box:before {
+	background-color: #000000;
+    content: "";
+    display: block;
+    height: 0.5em;
+    width: 100%;
+    z-index: 5;
+}
 
-			<?php if ( have_posts() ) : ?>
+.bordered_box {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #D8D8D8;
+    border-left: 1px solid #D8D8D8;
+    border-right: 1px solid #D8D8D8;
+}
 
-				<header class="page-header">
-					<h1 class="page-title"><?php
-						printf( __( 'Tag Archives: %s', 'twentyeleven' ), '<span>' . single_tag_title( '', false ) . '</span>' );
-					?></h1>
+.box_title {
+    color: #000000;
+    font-family: "DIN-Regular";
+    font-weight: bold;
+    height: 1em;
+    margin: 4px;
+    text-transform: uppercase;
+    font-size: 1em;
+    display:block !important;
+}
 
-					<?php
-						$tag_description = tag_description();
-						if ( ! empty( $tag_description ) )
-							echo apply_filters( 'tag_archive_meta', '<div class="tag-archive-meta">' . $tag_description . '</div>' );
-					?>
-				</header>
+.blog_entries > .box_title {
+	margin: 8px;
+	padding-left: 8px;
+	height: 20px;
+}
 
-				<?php twentyeleven_content_nav( 'nav-above' ); ?>
+.blog_entry {
+    color: #909090;
+    font-size: 0.8em;
+    padding-bottom: 1em;
+}
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+a {
+	color: #000;
+}
 
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
+a:hover {
+	color: #555555;
+}
 
-				<?php endwhile; ?>
+.blog_entry .blog_entry_header {
+    border-top: 1px solid #D8D8D8;
+    padding: 1.5em 1.25em 0.5em;
+}
 
-				<?php twentyeleven_content_nav( 'nav-below' ); ?>
+.blog_entry .blog_entry_header .blog_entry_title {
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
 
-			<?php else : ?>
+.blog_entry .blog_entry_header .blog_entry_subtitle {
+    float: left;
+    margin-top: 0.5em;
+}
 
-				<article id="post-0" class="post no-results not-found">
-					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
-					</header><!-- .entry-header -->
+.blog_entry .blog_entry_content {
+    font-size: 1em;
+    line-height: 1.5em;
+    margin-top: 1.5em;
+    padding: 1em 1.25em 0.5em;
+}
 
-					<div class="entry-content">
-						<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'twentyeleven' ); ?></p>
-						<?php get_search_form(); ?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-0 -->
+.blog_entry_categories {
+    margin-top: 1em;
+    padding-left: 1.5em;
+    text-transform: uppercase;
+}
 
-			<?php endif; ?>
+.right-col {
+    float: right;
+    margin-left: 0;
+    width: 20em;
+}
 
-			</div><!-- #content -->
-		</section><!-- #primary -->
+.bordered_box{
+	margin-bottom: 10px;
+}
 
-<?php get_sidebar(); ?>
+.blog_entry img{
+	display:block;
+	margin:15px auto;
+	text-align:center;
+	cursor:pointer; 
+	cursor:hand;
+	max-width: 580px;
+	max-height: 500px;
+}
+
+.wp-caption {
+	width: 100% !important;
+}
+
+.wp-caption .wp-caption-text{
+	text-align:center;
+	font-style: italic;
+}
+
+#archive {
+	width: 318px;
+}
+
+.archive_box{padding: 0 0 10px 0; width: 100% }
+.archive_box ul {margin: 0;}
+.archive_box li {margin: 0; padding: 0;}
+.archive_box li.archive-year{float: left; padding: 5px 0 3px 10px; }
+.archive_box li.archive-year a{color:#555555; margin: 0; border: 0px; padding: 0;}
+.archive_box li a{ border-left: 1px solid #d6d7d7; padding: 5px 0 3px 10px; margin: 0 0 0 55px; display: block;color:#909090;}
+.archive_box li a:hover, .archive_box li a.active {
+	color :#000;
+}
+
+
+</style>
+<script>
+	$(document).ready(function(){
+
+		$('.archive-month a.active').live('click', function() {
+			return false;
+		});
+
+		$('.archive-month a,.archive-year a').live('click', function() {
+			_date = $(this).attr('date');
+
+			if ($('.blog_entry[date="'+_date+'"]').length != 0) {
+				$('.blog_entry').animate({'opacity':.5},500);
+				$('html, body').animate({scrollTop: $('.blog_entry[date="'+_date+'"]').offset().top}, 1000,
+					function(){
+						$('.blog_entry').animate({'opacity':1},500);
+					});
+				return false;
+			}
+		});
+
+		$('.archive-month a[href="'+ window.location.href +'"]').addClass('active');
+		$('.archive-year a[href*="'+ window.location.pathname.split('/')[1] +'"]').addClass('active');
+		$('#menu-blog').addClass('active');
+		
+		var halfWay = ($(document).height()/2);
+		(halfWay - 600 > 0)?halfWay -= 600:null;
+		var offset = 0;
+
+		var inAction = false;
+		var archive_top = $('#archive').position().top - 10;
+		var stp = false;
+		var pathname = window.location.pathname;
+		var year="", month="";
+		(!!window.location.search)?(
+			year = pathname.split("/")[1],
+			month = pathname.split("/")[2]
+		):offset = 10;
+
+		$(document).scroll(function(){
+			if (!stp && $(document).scrollTop() > archive_top) {
+				$('#archive').css({'position':'fixed','top':'10px'});
+				stp = true;
+			} else if (stp && $(document).scrollTop() < archive_top){
+				$('#archive').css({'position':'relative','top':'0'});
+				stp = false;
+			}
+
+			if($(document).scrollTop() > halfWay && inAction == false){
+				inAction = true;
+				$.ajax({
+					url: ajaxurl,
+					data: {
+						'action':'get_ajax_posts',
+						'n_posts':'2',
+						'offset': offset.toString(),
+						'month' : month,
+						'year' : year,
+						'tag' : window.location.href.split('/tag/')[1].split('/')[0]
+					},
+					success:function(data){
+						if (data != '') {
+							$('img',$(data)).each(function(){
+								var _w = parseInt($(this).attr('width'));
+								var _h = parseInt($(this).attr('height'));
+								var val = (((800 - _w)*100)/_w)*_h;
+								$(this).attr('height',val).attr('width',800);
+							});
+
+							$('.feed_entries').append(data);
+							halfWay = ($(document).height()/2);
+							inAction=false;
+							offset+=2;
+
+							
+
+						}
+					}, error: function (errorMessage){
+						console.log(errorMessage);
+						return false;
+					}
+				})
+			} 
+		});
+
+		$('.archive_box li a').live('click',function(){
+			$('.archive_box li a').removeClass('active');
+			$(this).addClass('active');
+
+		});
+
+		$('.feed_entries img').each(function(){
+			var _w = parseInt($(this).attr('width'));
+			var _h = parseInt($(this).attr('height'));
+			var val = (((800 - _w)*100)/_w)*_h;
+			$(this).attr('height',val).attr('width',800);
+		});
+	});
+
+
+</script>
+<div class="blog_entries bordered_box">
+	<div class="box_title">
+		blog
+	</div>
+	<div class="feed_entries">
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php echo get_post_format(); ?>
+			<?php get_template_part( 'container-blogs', get_post_format() ); ?>
+		<?php endwhile; ?>
+	</div>
+</div>
+<div class="right-col">
+	<div class="bordered_box" id="updates">
+		<div class="bordered_title_box">
+			<div class="box_title col_box">
+				<span>updates</span>	
+			</div>
+			<div id="rss_feed">
+				<a target="_blank" href="http://api.twitter.com/1/statuses/user_timeline/brutelabs.rss">
+					<img src="http://3.brutelabs2.appspot.com/media/image/buttons/rss.png">
+				</a>
+			</div>
+		</div>
+		<div id="updates_feeds">
+			<ul id="update_feeds_list"><ul></ul>
+		</div>
+	</div>
+	<div class="bordered_box" id="stay_connected">
+		<div class="title_box">
+			<div class="box_title col_box">
+				<span>stay connected</span>
+			</div>
+		</div>
+		<div id="stay_connected_list">
+			<ul>
+				<li>
+					<a href="http://twitter.com/brutelabs">
+						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/twitter.png">
+					</a>
+				</li>
+				<li>
+					<a href="http://www.facebook.com/brutelabs">
+						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/facebook.png">
+					</a>
+				</li>
+				<li>
+					<a href="http://www.youtube.com/brutelabs">
+						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/youtube.png">
+					</a>
+				</li>
+				<li>
+					<a href="http://www.flickr.com/photos/brutelabs">
+						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/flickr.png">
+					</a>
+				</li>
+				<li>
+					<a href="http://www.brutelabs.org/blog/feed/atom.xml">
+						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/rss.png">
+					</a>
+				</li>
+				<li>
+					<a href="mailto:content@brutelabs.org?subject=Stay Connected">
+						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/mail.png">
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="bordered_box" id="site_links">
+		<div class="bordered_title_box">
+			<div class="box_title col_box">
+				<span>site links</span>
+			</div>
+		</div>
+		<div class="site_link">
+			<a href="#">
+				<div>
+					Volunteer with BRUTE LABS
+				</div>
+			</a>
+		</div>
+		<div class="site_link">
+			<a href="mailto:info@brutelabs.org">
+				<div>
+					Contact Brute Labs
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div class="bordered_box" id="archive">
+		<div class="bordered_title_box">
+			<div class="box_title col_box">
+				<span>Archive</span>
+			</div>
+		</div>
+		<div class="archive_box">
+			<ul>
+			<?php
+				global $wpdb;
+				$limit = 0;
+				$year_prev = null;
+				$months = $wpdb->get_results("SELECT DISTINCT MONTH( post_date ) AS month ,	YEAR( post_date ) AS year, COUNT( id ) FROM $wpdb->posts WHERE ID IN (SELECT object_id FROM wp_term_relationships WHERE TERM_TAXONOMY_ID = 5) AND post_status = 'publish' GROUP BY month , year ORDER BY post_date DESC");
+				foreach($months as $month) : $year_current = $month->year;
+
+				if ($year_current != $year_prev){
+					if ($year_prev != null){?>
+
+					<?php } ?>
+
+					<li class="archive-year"><a href="<?php bloginfo('url') ?>/<?php echo $month->year; ?>/?cat=5" date="<?php echo $month->year; ?>"><?php echo $month->year; ?></a></li>
+
+					<?php } ?>
+				<li class="archive-month"><a href="<?php bloginfo('url') ?>/<?php echo $month->year; ?>/<?php echo date("m", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>/?cat=5" date="<?php echo $month->year; ?>/<?php echo date("m", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>"><span class="archive-month"><?php echo date("F", mktime(0, 0, 0, $month->month, 1, $month->year)); ?></span></a></li>
+				<?php $year_prev = $year_current;
+
+				endforeach; ?>
+				</ul>
+		</div>
+	</div>
+	</div>
 <?php get_footer(); ?>
+</div><!-- #wrapper -->
+
+</div>

@@ -737,7 +737,7 @@ function get_ajax_posts(){
 		add_filter('posts_where', 'filter_where');
 	}
 
-	query_posts($query_string.'category_name=Blog&posts_per_page='.$_REQUEST['n_posts'].'&offset='.$_REQUEST['offset']);
+	query_posts($query_string.'category_name=Blog&posts_per_page='.$_REQUEST['n_posts'].'&offset='.$_REQUEST['offset'].'&tag='.$_REQUEST['tag']);
 
 	if(have_posts()) : while ( have_posts() ) : the_post();
 		echo get_post_format();

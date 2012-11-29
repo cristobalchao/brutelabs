@@ -134,11 +134,6 @@ a:hover {
 <script>
 	$(document).ready(function(){
 
-		$('.blog_entry_categories a').live('click',function(){
-			alert('Coming very soon...');
-			return false;
-		});
-
 		$('.archive-month a.active').live('click', function() {
 			return false;
 		});
