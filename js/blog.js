@@ -92,4 +92,84 @@ $('.feed_entries img').each(function(){
 	var val = (((800 - _w)*100)/_w)*_h;
 	$(this).attr('height',val).attr('width',800);
 });
+
+$('.comments').unbind('click').bind('click',function(event){
+	$this = $(this);
+	$this_comment = $this.parent().parent().parent().children('.blog_comments');
+	var stp = false;
+
+
+	if (!$this_comment.hasClass('active')) {
+		$this_comment.addClass('active');
+		$('html, body').animate({scrollTop: $(this).parent().parent().parent().children('.blog_entry_footer').offset().top}, 500,
+			function(){
+				(!stp)?(
+					$this_comment.animate({ height: 'toggle', opacity: 'toggle' }, 800),
+					stp = true):null;
+			});
+	} else {
+		$('html, body').animate({scrollTop: $(this).parent().parent().parent().children('.blog_entry_footer').offset().top}, 500);
+	}
+	return false;
+});
+
+$('.post-comment .post-title').live('click',function(){
+	$(this).parent().children('.box-post').animate({ height: 'toggle', opacity: 'toggle' }, 800);
+	return false;
+});
+
+$('.publish-button').click(function(){
+	var $name = $(this).siblings('.post-name');
+	var $id = $(this).parent().parent().parent().parent().attr('id');
+
+	var $content = $(this).siblings('textarea');
+	var $post_box = $(this).parent().parent();
+
+	if ( $name.val() == '' || $content.val() == '') {
+		($name.val() == '')?$name.addClass('error'):null;
+		($content.val() == '')?$content.addClass('error'):null;
+		return false;
+	} else {
+		$.ajax({
+			url: ajaxurl,
+			type: 'POST',
+			data: {
+				'action':'set_ajax_comment',
+				'id':$id,
+				'name':$name.val(),
+				'content':$content.val()
+			},
+			success:function(data){
+				if (data) {
+					$new_comment = '<div class="comment newComment"><div class="comment-header"><span class="comment-author">'+$name.val()+'</span> says : <span class="comment-date">'+data+'</span></div><div class="content-comment">'+$content.val()+'</div></div>';
+					$post_box.prepend($new_comment);
+					var _hNew = $('.newComment').offset().top;
+
+					$('.newComment').animate({ height: 'toggle', opacity: 'toggle' }, 800, function(){
+						$('html, body').animate({scrollTop: _hNew}, 500);
+						$(this).removeClass('newComment');
+						clearPostBox();
+					});
+					$post_box.children('.box-post').animate({ height: 'toggle', opacity: 'toggle' }, 800);
+				} else {
+					console.log('Error in AJAX')
+				}
+			}, error: function (errorMessage){
+				console.log(errorMessage);
+				return false;
+			}
+		});
+	}
+});
+
+$('.post-name, textarea').focus(function(){
+	$(this).removeClass('error');
+});
+
+function clearPostBox(){
+	$('.post-name, textarea').val('');
+}
+
+clearPostBox();
+
 });

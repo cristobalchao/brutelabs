@@ -745,4 +745,32 @@ function get_ajax_posts(){
 	endwhile;endif;
 	die();
 }
+
+//BLOG COMMENTS
+
+add_action('wp_ajax_nopriv_set_ajax_comment', 'set_ajax_comment');
+add_action('wp_ajax_set_ajax_comment', 'set_ajax_comment');
+
+function set_ajax_comment(){
+	if ($_REQUEST['id'] != '' && $_REQUEST['name'] != '' && $_REQUEST['content'] != '') {
+
+		$time = current_time('mysql');
+
+		$data = array(
+			'comment_post_ID' => $_REQUEST['id'],
+			'comment_author' => $_REQUEST['name'],
+			'comment_author_email' => 'admin@admin.com',
+			'comment_content' => $_REQUEST['content'],
+			'comment_date' => $time,
+			'comment_approved' => 1,
+		);
+
+		wp_insert_comment($data);
+
+		echo date('l F j, Y h:iA');
+
+	}
+
+	die();
+}
 ?>

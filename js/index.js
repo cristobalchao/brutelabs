@@ -218,7 +218,7 @@ $(document).ready(function(){
     $('.go-spot[spot_id="126"] .large-image').css({'background-position':'0 -152px'});
 
 	//SPOTLIGHT
-	$('.go-spot').unbind('click').click('click',function(){
+	$('.go-spot').unbind('click').bind('click',function(){
 		if(history.pushState && history.replaceState) {
 			var _tit = $(this).attr('title');
 			var _id = $(this).attr('spot_id');
@@ -238,7 +238,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$('.spotlight_back .back').unbind('click').click('click',function(){
+	$('.spotlight_back .back').unbind('click').bind('click',function(){
 		if(history.pushState && history.replaceState) {
 			var _id = $(this).attr('spot_id')+1;
 			history.pushState({"id":_id}, "", "/");
@@ -490,7 +490,6 @@ $(document).ready(function(){
 	});
 
 	$('#slider .item').live('click',function(){
-
 		if(!$('#image_selected').is(':animated')) {
 			$('#slider .item').removeClass('active');
 			$(this).addClass('active');
