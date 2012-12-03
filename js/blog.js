@@ -149,7 +149,6 @@ $('.publish-button').click(function(){
 				'content':$content.val()
 			},
 			success:function(data){
-				console.log(data);
 				if (data) {
 					$new_comment = '<div class="comment newComment"><div class="comment-header"><a href="mailto:'+data['email']+'"><span class="comment-author">'+data['name']+'</span></a> says : <span class="comment-date">'+data['time']+'</span></div><div class="content-comment">'+data['content']+'</div></div>';
 					$post_box.prepend($new_comment);
@@ -159,19 +158,20 @@ $('.publish-button').click(function(){
 						$('html, body').animate({scrollTop: _hNew}, 500);
 						$(this).removeClass('newComment');
 						clearPostBox();
+						$loading.css({'display':'none'});
 					});
 					$post_box.children('.box-post').animate({ height: 'toggle', opacity: 'toggle' }, 800);
 				} else {
-					console.log('Error in AJAX')
+					console.log('Error in AJAX');
+					$loading.css({'display':'none'});
 				}
 			}, error: function (errorMessage){
 				console.log(errorMessage);
+				$loading.css({'display':'none'});
 				return false;
 			}
 		});
 	}
-
-	$loading.css({'display':'none'});
 });
 
 $('.post-name, textarea').focus(function(){

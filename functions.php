@@ -776,7 +776,7 @@ function set_ajax_comment(){
 				'name' => $_name,
 				'email' => $_email,
 				'content' => $_content,
-				'time' => date('l F j, Y h:iA')
+				'time' => date('l F j, Y h:iA',current_time('timestamp',0))
 			);
 
 		echo json_encode($result);
