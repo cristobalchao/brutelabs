@@ -121,6 +121,9 @@ $('.post-comment .post-title').live('click',function(){
 });
 
 $('.publish-button').click(function(){
+	var $loading = $(this).siblings('.loading-small');
+	$loading.css({'display':'block'});
+
 	var $name = $(this).siblings('.post-name');
 	var $email = $(this).siblings('.post-email');
 	var $id = $(this).parent().parent().parent().parent().attr('id');
@@ -167,6 +170,8 @@ $('.publish-button').click(function(){
 			}
 		});
 	}
+
+	$loading.css({'display':'none'});
 });
 
 $('.post-name, textarea').focus(function(){

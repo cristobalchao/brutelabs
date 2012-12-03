@@ -51,6 +51,7 @@
 			<span class="post-title">Post a Comment</span>
 			
 			<div class="box-post">
+				<span class="loading-small"></span>
 				<input type="text" placeholder="Name" class="post-name">
 				<input type="email" placeholder="E-Mail" class="post-email" size="40">
 				<br>

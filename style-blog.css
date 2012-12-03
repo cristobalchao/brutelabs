@@ -230,3 +230,12 @@ a:hover {
 .newComment {
     display: none;
 }
+
+.loading-small{
+    background-image: url("http://dynatree.googlecode.com/svn-history/r433/trunk/src/skin-xp/loading.gif");
+    display: none;
+    background-repeat: no-repeat;
+    float: right;
+    height: 15px;
+    width: 16px;
+}
