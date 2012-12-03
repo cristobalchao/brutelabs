@@ -752,22 +752,34 @@ add_action('wp_ajax_nopriv_set_ajax_comment', 'set_ajax_comment');
 add_action('wp_ajax_set_ajax_comment', 'set_ajax_comment');
 
 function set_ajax_comment(){
-	if ($_REQUEST['id'] != '' && $_REQUEST['name'] != '' && $_REQUEST['content'] != '') {
+	if ($_REQUEST['id'] != '' && $_REQUEST['name'] != '' && $_REQUEST['email'] != '' && $_REQUEST['content'] != '') {
+
+		$_id = htmlspecialchars($_REQUEST['id'], ENT_QUOTES);
+		$_name = htmlspecialchars($_REQUEST['name'], ENT_QUOTES);
+		$_email = htmlspecialchars($_REQUEST['email'], ENT_QUOTES);
+		$_content = htmlspecialchars($_REQUEST['content'], ENT_QUOTES);
 
 		$time = current_time('mysql');
 
 		$data = array(
-			'comment_post_ID' => $_REQUEST['id'],
-			'comment_author' => $_REQUEST['name'],
-			'comment_author_email' => 'admin@admin.com',
-			'comment_content' => $_REQUEST['content'],
+			'comment_post_ID' => $_id,
+			'comment_author' => $_name,
+			'comment_author_email' => $_email,
+			'comment_content' => $_content,
 			'comment_date' => $time,
 			'comment_approved' => 1,
 		);
 
 		wp_insert_comment($data);
 
-		echo date('l F j, Y h:iA');
+		$result = array(
+				'name' => $_name,
+				'email' => $_email,
+				'content' => $_content,
+				'time' => date('l F j, Y h:iA')
+			);
+
+		echo json_encode($result);
 
 	}
 

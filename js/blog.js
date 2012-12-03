@@ -45,6 +45,8 @@ $(document).ready(function(){
 
 		if($(document).scrollTop() > halfWay && inAction == false){
 			inAction = true;
+			(!!window.location.href.split('/tag/')[1])?
+				_tag=window.location.href.split('/tag/')[1].split('/')[0]:_tag="";
 			$.ajax({
 				url: ajaxurl,
 				data: {
@@ -53,7 +55,7 @@ $(document).ready(function(){
 					'offset': offset.toString(),
 					'month' : month,
 					'year' : year,
-					'tag' : window.location.href.split('/tag/')[1].split('/')[0]
+					'tag' : _tag
 				},
 				success:function(data){
 					if (data != '') {
@@ -120,28 +122,33 @@ $('.post-comment .post-title').live('click',function(){
 
 $('.publish-button').click(function(){
 	var $name = $(this).siblings('.post-name');
+	var $email = $(this).siblings('.post-email');
 	var $id = $(this).parent().parent().parent().parent().attr('id');
 
 	var $content = $(this).siblings('textarea');
 	var $post_box = $(this).parent().parent();
 
-	if ( $name.val() == '' || $content.val() == '') {
+	if ( $name.val() == '' || $email.val() == '' || $content.val() == '') {
 		($name.val() == '')?$name.addClass('error'):null;
+		($email.val() == '')?$email.addClass('error'):null;
 		($content.val() == '')?$content.addClass('error'):null;
 		return false;
 	} else {
 		$.ajax({
 			url: ajaxurl,
 			type: 'POST',
+			dataType: 'json',
 			data: {
 				'action':'set_ajax_comment',
 				'id':$id,
 				'name':$name.val(),
+				'email':$email.val(),
 				'content':$content.val()
 			},
 			success:function(data){
+				console.log(data);
 				if (data) {
-					$new_comment = '<div class="comment newComment"><div class="comment-header"><span class="comment-author">'+$name.val()+'</span> says : <span class="comment-date">'+data+'</span></div><div class="content-comment">'+$content.val()+'</div></div>';
+					$new_comment = '<div class="comment newComment"><div class="comment-header"><a href="mailto:'+data['email']+'"><span class="comment-author">'+data['name']+'</span></a> says : <span class="comment-date">'+data['time']+'</span></div><div class="content-comment">'+data['content']+'</div></div>';
 					$post_box.prepend($new_comment);
 					var _hNew = $('.newComment').offset().top;
 
@@ -167,7 +174,7 @@ $('.post-name, textarea').focus(function(){
 });
 
 function clearPostBox(){
-	$('.post-name, textarea').val('');
+	$('.post-name, .post-email, textarea').val('');
 }
 
 clearPostBox();

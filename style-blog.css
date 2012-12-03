@@ -178,12 +178,17 @@ a:hover {
     display: none;
 }
 
-.post-comment .post-name {
+.post-comment .post-name, .post-comment .post-email  {
     padding: 10px;
     font: inherit;
+    float:left;
 }
 
-.post-comment .post-name.error[placeholder], .post-comment textarea.error[placeholder] {
+.post-comment .post-email  {
+    margin-left: 10px;
+}
+
+.post-comment .post-name.error[placeholder], .post-comment .post-email.error[placeholder], .post-comment textarea.error[placeholder] {
     color: red !important;
 }
 

@@ -42,7 +42,7 @@
 			 	foreach($comments as $comment){ ?>
 				<div class="comment">
 					<div class="comment-header">
-						<span class="comment-author"><? echo $comment->comment_author;  ?></span> says : <span class="comment-date"><? echo get_comment_date( 'l F j, Y h:iA', $comment->comment_ID );?></span>
+						<a href="mailto:<?  echo $comment->comment_author_email ?>"><span class="comment-author"><? echo $comment->comment_author;  ?></span></a> says : <span class="comment-date"><? echo get_comment_date( 'l F j, Y h:iA', $comment->comment_ID );?></span>
 					</div>
 					<div class="content-comment"><? echo $comment->comment_content ?></div>
 				</div>
@@ -52,6 +52,7 @@
 			
 			<div class="box-post">
 				<input type="text" placeholder="Name" class="post-name">
+				<input type="email" placeholder="E-Mail" class="post-email" size="40">
 				<br>
 				<textarea placeholder="Content" cols="83" rows="10"></textarea>
 				<br>
