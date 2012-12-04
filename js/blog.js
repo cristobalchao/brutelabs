@@ -47,6 +47,9 @@ $(document).ready(function(){
 			inAction = true;
 			(!!window.location.href.split('/tag/')[1])?
 				_tag=window.location.href.split('/tag/')[1].split('/')[0]:_tag="";
+
+			(!$('.loading-blog').hasClass('active'))?$('.loading-blog').addClass('active'):null;
+
 			$.ajax({
 				url: ajaxurl,
 				data: {
@@ -70,12 +73,12 @@ $(document).ready(function(){
 						halfWay = ($(document).height()/2);
 						inAction=false;
 						offset+=2;
-
-
-
 					}
+
+					$('.loading-blog').removeClass('active');
 				}, error: function (errorMessage){
 					console.log(errorMessage);
+					$('.loading-blog').removeClass('active');
 					return false;
 				}
 			})

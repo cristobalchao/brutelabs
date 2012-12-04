@@ -239,3 +239,24 @@ a:hover {
     height: 15px;
     width: 16px;
 }
+
+.loading-blogs {
+    position:relative;
+    clear: both;
+}
+
+.loading-blogs .loading-blog{
+    background-image: url("http://dynatree.googlecode.com/svn-history/r433/trunk/src/skin-xp/loading.gif");
+    display: none;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: 22px;
+    top: -40px;
+    height: 15px;
+    width: 16px;
+}
+
+.loading-blogs .loading-blog.active{
+    display: block;
+}
+

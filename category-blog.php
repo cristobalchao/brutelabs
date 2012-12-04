@@ -16,7 +16,11 @@ get_header(); ?>
 			<?php get_template_part( 'container-blogs', get_post_format() ); ?>
 		<?php endwhile; ?>
 	</div>
+	<div class="loading-blogs" style="position:relative;">
+		<div class="loading-blog"></div>	
+	</div>
 </div>
+
 <div class="right-col">
 	<div class="bordered_box" id="updates">
 		<div class="bordered_title_box">
@@ -126,7 +130,8 @@ get_header(); ?>
 				</ul>
 		</div>
 	</div>
-	</div>
+</div>
+
 <?php get_footer(); ?>
 </div><!-- #wrapper -->
 
