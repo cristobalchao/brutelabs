@@ -46,32 +46,32 @@ get_header(); ?>
 		<div id="stay_connected_list">
 			<ul>
 				<li>
-					<a href="http://twitter.com/brutelabs">
+					<a href="http://twitter.com/brutelabs" target="_blank">
 						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/twitter.png">
 					</a>
 				</li>
 				<li>
-					<a href="http://www.facebook.com/brutelabs">
+					<a href="http://www.facebook.com/brutelabs" target="_blank">
 						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/facebook.png">
 					</a>
 				</li>
 				<li>
-					<a href="http://www.youtube.com/brutelabs">
+					<a href="http://www.youtube.com/brutelabs" target="_blank">
 						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/youtube.png">
 					</a>
 				</li>
 				<li>
-					<a href="http://www.flickr.com/photos/brutelabs">
+					<a href="http://www.flickr.com/photos/brutelabs" target="_blank">
 						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/flickr.png">
 					</a>
 				</li>
 				<li>
-					<a href="http://www.brutelabs.org/blog/feed/atom.xml">
+					<a href="http://www.brutelabs.org/blog/feed/atom.xml" target="_blank">
 						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/rss.png">
 					</a>
 				</li>
 				<li>
-					<a href="mailto:content@brutelabs.org?subject=Stay Connected">
+					<a href="mailto:content@brutelabs.org?subject=Stay Connected" target="_blank">
 						<img src="http://3.brutelabs2.appspot.com/media/image/buttons/mail.png">
 					</a>
 				</li>
@@ -85,7 +85,7 @@ get_header(); ?>
 			</div>
 		</div>
 		<div class="site_link">
-			<a href="#">
+			<a href="http://www.volunteermatch.org/search/org223829.jsp" target="_blank">
 				<div>
 					Volunteer with BRUTE LABS
 				</div>

@@ -24,9 +24,10 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
-<title>BRUTE LABS - Design and Technology Non-Profit Addressing Global Challenges</title>
+<title>Brute Labs - Design and Technology Non-Profit Addressing Global Challenges</title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+<link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.png" />
 <link rel="image_src" href="http://www.brutelabs.org/img/donate_like_follow.jpg"/>
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php

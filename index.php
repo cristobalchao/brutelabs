@@ -69,13 +69,18 @@ get_header(); ?>
 						</a>
 					</li>
 					<li>
-						<a href="http://www.brutelabs.org/blog/feed/atom.xml" target="_blank">
-							<img src="http://3.brutelabs2.appspot.com/media/image/buttons/rss.png">
+						<a href="http://www.youtube.com/brutelabs" target="_blank">
+							<img src="http://3.brutelabs2.appspot.com/media/image/buttons/youtube.png">
 						</a>
 					</li>
 					<li>
-						<a href="#" target="_blank">
-							<img src="http://3.brutelabs2.appspot.com/media/image/buttons/digg.png">
+						<a href="http://www.flickr.com/photos/brutelabs" target="_blank">
+							<img src="http://3.brutelabs2.appspot.com/media/image/buttons/flickr.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.brutelabs.org/blog/feed/atom.xml" target="_blank">
+							<img src="http://3.brutelabs2.appspot.com/media/image/buttons/rss.png">
 						</a>
 					</li>
 					<li>
