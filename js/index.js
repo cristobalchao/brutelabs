@@ -230,7 +230,7 @@ $(document).ready(function(){
 
 	$('.go_spot').live('click',function(){
 		if(history.pushState && history.replaceState) {
-			var _tit = $(this).attr('title');
+			var _tit = $(this).attr('stitle');
 			var _id = $(this).attr('spot_id');
 			history.pushState({"id":_id}, _tit, "/"+_tit);
 			activeSpotlight(_id);
@@ -420,7 +420,7 @@ $(document).ready(function(){
 		(id_spot == "126")?newElem.children('.mark_project_image').children('.go_spot').children('.featured_project_image').css({'background-position':'0 -120px'}):null;
 		var url_spotlight = '#/spotlight/'+id_spot;
 		var ftitle = $('article[data-id="'+arr[cnt]+'"] .elem-title',$container).html();
-		newElem.children('.mark_project_image').children('.go_spot').attr('href',url_spotlight).attr('spot_id',id_spot).attr('title',ftitle);
+		newElem.children('.mark_project_image').children('.go_spot').attr('href',url_spotlight).attr('spot_id',id_spot).attr('stitle',ftitle);
 		var fcontent = $('article[data-id="'+arr[cnt]+'"] .elem-content',$container).html();
 		newElem.children('.featured_project_description').children('.feature_project_name').html(ftitle);
 		var tot = 290-ftitle.length;
@@ -444,7 +444,7 @@ $(document).ready(function(){
 		$clone.children('.mark_project_image').children('.go_spot').children('.featured_project_image').css({'background-position':'0% 0%'});
 		(id_spot == "126")?$clone.children('.mark_project_image').children('.go_spot').children('.featured_project_image').css({'background-position':'0 -120px'}):null;
 		var url_spotlight = '#/spotlight/'+id_spot;
-		$clone.children('.mark_project_image').children('.go_spot').attr('href',url_spotlight).attr('spot_id',id_spot).attr('title',ftitle);
+		$clone.children('.mark_project_image').children('.go_spot').attr('href',url_spotlight).attr('spot_id',id_spot).attr('stitle',ftitle);
 		$clone.children('.featured_project_description').children('.feature_project_name').html(ftitle);
 		$clone.children('.featured_project_description').children('.feature_project_text').html(fcontent);
 

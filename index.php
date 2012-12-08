@@ -19,7 +19,7 @@ get_header(); ?>
 		<ul>
 			<li class="featured_project">
 				<div class="mark_project_image">
-					<a href="#" spot_id="" title="" class="go_spot">
+					<a href="#" spot_id="" stitle="" class="go_spot">
 						<div class="featured_project_image"> </div>
 					</a>
 				</div>

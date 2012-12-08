@@ -90,6 +90,7 @@
 				else $spot_images .= '<img class="item" src="" url="'.$upload_dir['baseurl'].'/'.get_post_meta($attachment->ID, '_wp_attached_file', true).'" />';
 				$i++;
 			} else if (strpos($attachment->post_mime_type, "pdf") !== false) {
+				$upload_dir = wp_upload_dir();
 				$spot_downloads .= '<span class="download_link">→ <a href="'.$upload_dir['baseurl'].'/'.get_post_meta($attachment->ID, '_wp_attached_file', true).'">'.$attachment->post_title.' (PDF)</a></span>';
 			}
        	}
